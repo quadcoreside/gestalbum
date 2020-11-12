@@ -4,11 +4,33 @@ import java.util.*;
 class Main extends Parent implements Interface {
 
   static ArrayList<ElementMusical> listElementMusica;
-  static Hashtable<Integer, String> TabGenre;
-  static Hashtable<Integer, String> tabCat;
-  static Hashtable<Integer, String> tabLangue;
+  static Dictionary TabGenre;
+  static Dictionary tabCat;
+  static Dictionary tabLangue;
 
   public static void main(String[] args) {
+    TabGenre = new Hashtable();
+    tabCat = new Hashtable();
+    tabLangue = new Hashtable();
+
+    TabGenre.put("1", "Jazz");
+    TabGenre.put("1", "Hip-Hop");
+    TabGenre.put("1", "Rock");
+    TabGenre.put("1", "Pop");
+    TabGenre.put("1", "Rap");
+
+    TabGenre.put("1", "Jeunesse");
+    TabGenre.put("1", "Roman");
+    TabGenre.put("1", "Théatre");
+    TabGenre.put("1", "Discours");
+    TabGenre.put("1", "Documetaire");
+
+    TabGenre.put("1", "Francais");
+    TabGenre.put("1", "Anglais");
+    TabGenre.put("1", "Italien");
+    TabGenre.put("1", "Espagnol");
+    TabGenre.put("1", "Allemand");
+
     readData();
 
     /* Commande Exec */
@@ -48,7 +70,7 @@ class Main extends Parent implements Interface {
       }
 
     }
-    
+
     saveData();
   }
 

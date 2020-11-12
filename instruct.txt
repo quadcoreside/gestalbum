@@ -54,7 +54,7 @@ ElementMusical {
 
 TabGenre{1 = Jazz,2 = Hip-Hop,3 = Rock, 4 = Pop, 5 = Rap}
 
-Catégorie{1 = Jeunesse, 2 = Roman,3 = Théatre,4 = Discours,5 = Documetaire}
+TabGenre{1 = Jeunesse, 2 = Roman,3 = Théatre,4 = Discours,5 = Documetaire}
 
 Langues{1 = Francais,2 = Anglais,3 = Italien,4 = Espagnol,5 = Allemand}
 
