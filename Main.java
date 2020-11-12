@@ -4,32 +4,28 @@ import java.util.*;
 class Main extends Parent implements Interface {
 
   static ArrayList<ElementMusical> listElementMusica;
-  static Dictionary TabGenre;
-  static Dictionary tabCat;
-  static Dictionary tabLangue;
+  static Dictionary dicGenre = new Hashtable();
+  static Dictionary dicCat = new Hashtable();
+  static Dictionary dicLangue = new Hashtable();
 
   public static void main(String[] args) {
-    TabGenre = new Hashtable();
-    tabCat = new Hashtable();
-    tabLangue = new Hashtable();
+    dicGenre.put("1", "Jazz");
+    dicGenre.put("1", "Hip-Hop");
+    dicGenre.put("1", "Rock");
+    dicGenre.put("1", "Pop");
+    dicGenre.put("1", "Rap");
 
-    TabGenre.put("1", "Jazz");
-    TabGenre.put("1", "Hip-Hop");
-    TabGenre.put("1", "Rock");
-    TabGenre.put("1", "Pop");
-    TabGenre.put("1", "Rap");
+    dicCat.put("1", "Jeunesse");
+    dicCat.put("1", "Roman");
+    dicCat.put("1", "Théatre");
+    dicCat.put("1", "Discours");
+    dicCat.put("1", "Documetaire");
 
-    TabGenre.put("1", "Jeunesse");
-    TabGenre.put("1", "Roman");
-    TabGenre.put("1", "Théatre");
-    TabGenre.put("1", "Discours");
-    TabGenre.put("1", "Documetaire");
-
-    TabGenre.put("1", "Francais");
-    TabGenre.put("1", "Anglais");
-    TabGenre.put("1", "Italien");
-    TabGenre.put("1", "Espagnol");
-    TabGenre.put("1", "Allemand");
+    dicLangue.put("1", "Francais");
+    dicLangue.put("1", "Anglais");
+    dicLangue.put("1", "Italien");
+    dicLangue.put("1", "Espagnol");
+    dicLangue.put("1", "Allemand");
 
     readData();
 
