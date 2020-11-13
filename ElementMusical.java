@@ -6,7 +6,7 @@ float Duree;
 
 class Chanson extends ElementMusical {
 String Artiste;
-char Genre;
+int Genre;
 }
 
 class LivreAudio extends ElementMusical {
