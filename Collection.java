@@ -1,5 +1,15 @@
-class MyClass extends Parent implements Interface {
-  public static void main(String[] args) {
+class Collection {
+String Name;
+}
 
-  }
+class Album extends Collection {
+String Artiste;
+float Duree;
+
+
+}
+
+class Playlist extends Collection {
+
+
 }
