@@ -61,7 +61,7 @@ class Main extends Parent implements Interface {
         break;
 
         default:
-        System.out.println( "ERREUR: Choix inconu" );
+        System.out.println( "ERREUR: Choix inconnu" );
         break;
       }
 
