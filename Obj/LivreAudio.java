@@ -1,9 +1,17 @@
 package gestalbum.obj;
 
 class LivreAudio extends ElementMusical {
+  private Integer id;
   private String auteur;
   private int langues;
   private int categorie;
+
+  public Integer getId() {
+    return id;
+  }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
   public String getAuteur() {
     return auteur;

@@ -1,8 +1,16 @@
 package gestalbum.obj;
 
 class Album extends Collection {
+  private Integer id;
   private String artiste;
   private float duree;
+
+  public Integer getId() {
+    return id;
+  }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
   public String getArtiste() {
     return artiste;
