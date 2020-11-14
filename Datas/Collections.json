@@ -1,32 +1,39 @@
 {
-"Collection": {
-
-  "Album": [
-    {
-      "Name" : "Album 1",
-      "Artiste": "Milles Davis",
-      "Duree": "56",
-      "DateSortie": "1959",
-      chanson: [ 6, 7, 8, 9 ]
-    },
-    {
-      "Name" : "Album 2",
-      "Artiste": "Milles Davis",
-      "Duree": "56",
-      "DateSortie": "1959",
-      chanson: [ 6, 7, 8, 9 ]
-    },
-    {
-      "Name" : "Album 3",
-      "Artiste": "Milles Davis",
-      "Duree": "56",
-      "DateSortie": "1959",
-      chanson: [ 6, 7, 8, 9 ]
-    }
-  ],
-  "Playlist": {
-    "Duree": "",
-    ElementMusical: [ 1, 2, 3, 4 ],
+  "collections": {
+    "albums": [
+      {
+        "id" : 1,
+        "name" : "Album 1",
+        "artiste": "Milles Davis",
+        "duree": "56",
+        "dateSortie": "1959",
+        chanson: [ 6, 7, 8, 9 ]
+      }, {
+        "id" : 2,
+        "name" : "Album 2",
+        "artiste": "Milles Davis",
+        "duree": "56",
+        "dateSortie": "1959",
+        chanson: [ 6, 7, 8, 9 ]
+      }, {
+        "id" : 3,
+        "name" : "Album 3",
+        "artiste": "Milles Davis",
+        "duree": "56",
+        "dateSortie": "1959",
+        chanson: [ 6, 7, 8, 9 ]
+      }
+    ],
+    "playlists": [
+      {
+        "id" : 1,
+        "name" : "Ma Playlist Perso 1",
+         elementMusical: [ 6, 7, 8, 9 ]
+      },{
+        "id" : 2,
+        "name" : "Ma Playlist Perso 2",
+         elementMusical: [ 1, 2, 3, 4 ]
+      }
+    ]
   }
-}
 }

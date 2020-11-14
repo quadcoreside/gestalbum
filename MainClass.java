@@ -4,30 +4,13 @@ package gestalbum;
 
 class MainClass {
 
-  static ArrayList<ElementMusical> listElementMusica;
-  static Dictionary dicGenre = new Hashtable();
-  static Dictionary dicCat = new Hashtable();
-  static Dictionary dicLangue = new Hashtable();
+  private static ArrayList<ElementMusical> listElementMusica;
+  private static Dictionary dicGenre = new Hashtable();
+  private static Dictionary dicCat = new Hashtable();
+  private static Dictionary dicLangue = new Hashtable();
 
   public static void main(String[] args) {
-    dicGenre.put("1", "Jazz");
-    dicGenre.put("2", "Hip-Hop");
-    dicGenre.put("3", "Rock");
-    dicGenre.put("4", "Pop");
-    dicGenre.put("5", "Rap");
-
-    dicCat.put("1", "Jeunesse");
-    dicCat.put("2", "Roman");
-    dicCat.put("3", "Théatre");
-    dicCat.put("4", "Discours");
-    dicCat.put("5", "Documetaire");
-
-    dicLangue.put("1", "Francais");
-    dicLangue.put("2", "Anglais");
-    dicLangue.put("3", "Italien");
-    dicLangue.put("4", "Espagnol");
-    dicLangue.put("5", "Allemand");
-
+    loadData();
     readData();
 
     /* Commande Exec */
@@ -88,6 +71,26 @@ class MainClass {
 
   private static saveData() {
 
+  }
+
+  private static loadData() {
+    this.dicGenre.put("1", "Jazz");
+    this.dicGenre.put("2", "Hip-Hop");
+    this.dicGenre.put("3", "Rock");
+    this.dicGenre.put("4", "Pop");
+    this.dicGenre.put("5", "Rap");
+
+    this.dicCat.put("1", "Jeunesse");
+    this.dicCat.put("2", "Roman");
+    this.dicCat.put("3", "Théatre");
+    this.dicCat.put("4", "Discours");
+    this.dicCat.put("5", "Documetaire");
+
+    this.dicLangue.put("1", "Francais");
+    this.dicLangue.put("2", "Anglais");
+    this.dicLangue.put("3", "Italien");
+    this.dicLangue.put("4", "Espagnol");
+    this.dicLangue.put("5", "Allemand");
   }
 
 }

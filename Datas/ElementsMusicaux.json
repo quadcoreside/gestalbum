@@ -1,13 +1,20 @@
 {
-"ElementMusical": [
-  {
-    "Name" : "file"
-    "Duree" : "file"
-  },
-  {
-    "Name" : "file"
-    "Duree" : "file"
-  },
-]
-
+  "elementMusical": [
+    {
+      "id" : 1,
+      "name" : "Musique 1",
+      "content" : "musique.mp4",
+      "duree" : 3
+    }, {
+      "id" : 2,
+      "name" : "Musique 1",
+      "content" : "musique.mp4",
+      "duree" : 3
+    }, {
+      "id" : 3,
+      "name" : "Musique 2",
+      "content" : "musique.mp4",
+      "duree" : 3
+    }
+  ]
 }

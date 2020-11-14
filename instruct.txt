@@ -1,4 +1,17 @@
 /*
+Votre programme doit obligatoirement présenter les différentes thématiques suivantes :
+   Héritage OK
+   Sérialisation --> JSON
+   Gestion des exceptions --> A faire
+   Les collections        --> OK à venie
+   Au moins une classe abstraite sera implémentée et au moins une interface sera utilisée
+   Les fichiers doivent contenir au moins : 20 éléments, 3 albums et 2 playlists
+
+Le rapport ne devra pas comporter de code et uniquement décrire :
+   Le diagramme de classe en UML.
+   Les contributions de chaque étudiant.
+   Le travail réalisé.
+   Les difficultés rencontrées et les solutions qui leur ont été apportées.
 
 Commande Main d'affichage:
 - « lc » : les chansons d’un album
