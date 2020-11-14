@@ -1,3 +1,5 @@
+package gestalbum.obj;
+
 class LivreAudio extends ElementMusical {
   private String auteur;
   private int langues;
@@ -16,7 +18,7 @@ class LivreAudio extends ElementMusical {
   public void setLangues(int langues) {
     this.langues = langues;
   }
-  
+
   public int getCategorie() {
     return categorie;
   }

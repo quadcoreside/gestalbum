@@ -1,3 +1,5 @@
+package gestalbum;
+
 class Collection {
   private String name;
 

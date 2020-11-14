@@ -1,3 +1,5 @@
+package gestalbum.obj;
+
 class Album extends Collection {
   private String artiste;
   private float duree;

@@ -1,3 +1,5 @@
+package gestalbum;
+
 class ElementMusical {
   private String name;
   private String content;
@@ -16,7 +18,7 @@ class ElementMusical {
   public void setContent(String content) {
     this.content = content;
   }
-  
+
   public float getDuree() {
     return duree;
   }

@@ -1,3 +1,5 @@
+package gestalbum.obj;
+
 class Chanson extends ElementMusical {
   private String artiste;
   private int genre;
