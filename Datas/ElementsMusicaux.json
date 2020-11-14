@@ -1,7 +1,13 @@
 {
-"ElementMusical": {
-  "Name" : "file"
-  "Duree" : "file"
-}
-  { "nom" }
+"ElementMusical": [
+  {
+    "Name" : "file"
+    "Duree" : "file"
+  },
+  {
+    "Name" : "file"
+    "Duree" : "file"
+  },
+]
+
 }

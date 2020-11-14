@@ -1,17 +1,30 @@
 class ElementMusical {
-String Name;
-String Contenue;
-float Duree;
+  private String name;
+  private String Contenue;
+  private float Duree;
+
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
 }
 
 class Chanson extends ElementMusical {
-String Artiste;
-int Genre;
+  private String artiste;
+  private int Genre;
+
+  public String getArtiste() {
+    return artiste;
+  }
+  public void setArtiste(String artiste) {
+    this.artiste = artiste;
+  }
 }
 
 class LivreAudio extends ElementMusical {
-String Auteur;
-int Langues;
-int Categorie;
-
+  private String Auteur;
+  private int Langues;
+  private int Categorie;
 }
