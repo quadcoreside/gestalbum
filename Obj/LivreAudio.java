@@ -1,4 +1,4 @@
-package gestalbum.obj;
+package gestalbum;
 
 class LivreAudio extends ElementMusical {
   private Integer id;
