@@ -1,4 +1,4 @@
-package gestalbum.obj;
+package gzik.obj;
 
 class Chanson extends ElementMusical {
   private Integer id;

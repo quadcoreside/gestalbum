@@ -1,4 +1,4 @@
-package gestalbum.obj;
+package gzik.obj;
 
 class Playlist extends Collection {
   private Integer id;

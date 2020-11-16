@@ -1,6 +1,6 @@
-package gestalbum;
+package gzik;
 
-class ElementMusical {
+public class ElementMusical {
   private String name;
   private String content;
   private float duree;

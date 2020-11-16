@@ -1,4 +1,4 @@
-package gestalbum.obj;
+package gzik.obj;
 
 class Album extends Collection {
   private Integer id;

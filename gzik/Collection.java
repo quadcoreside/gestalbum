@@ -1,4 +1,4 @@
-package gestalbum;
+package gzik;
 
 class Collection {
   private String name;
