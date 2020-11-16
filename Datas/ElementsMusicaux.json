@@ -1,5 +1,23 @@
 {
-  "elementMusical": [
+  "chanson" : [
+    {
+      "id" : 1,
+      "name" : "Musique 1",
+      "content" : "musique1.mp4",
+      "duree" : 3
+    }, {
+      "id" : 2,
+      "name" : "Musique 2",
+      "content" : "musique2.mp4",
+      "duree" : 3
+    }, {
+      "id" : 3,
+      "name" : "Musique 2",
+      "content" : "musique3.mp4",
+      "duree" : 3
+    }
+  ]
+  "livreaudio" : [
     {
       "id" : 1,
       "name" : "Musique 1",

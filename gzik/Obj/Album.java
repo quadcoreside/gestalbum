@@ -1,7 +1,7 @@
 package gzik.obj;
 import gzik.*;
 
-class Album extends Collection {
+public class Album extends Collection {
   private Integer id;
   private String artiste;
   private float duree;

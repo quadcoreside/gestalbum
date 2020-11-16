@@ -1,7 +1,7 @@
 package gestalbum;
 import gzik.*;
 
-class LivreAudio extends ElementMusical {
+public class LivreAudio extends ElementMusical {
   private Integer id;
   private String auteur;
   private int langues;

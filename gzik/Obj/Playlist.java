@@ -1,7 +1,7 @@
 package gzik.obj;
 import gzik.*;
 
-class Playlist extends Collection {
+public class Playlist extends Collection {
   private Integer id;
   private String name;
 

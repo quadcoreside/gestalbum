@@ -1,7 +1,7 @@
 package gzik.obj;
 import gzik.*;
 
-class Chanson extends ElementMusical {
+public class Chanson extends ElementMusical {
   private Integer id;
   private String artiste;
   private int genre;

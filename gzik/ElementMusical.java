@@ -1,9 +1,17 @@
 package gzik;
 
 public class ElementMusical {
+  private Integer id;
   private String name;
   private String content;
   private float duree;
+
+  public Integer getId() {
+    return id;
+  }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
   public String getName() {
     return name;
@@ -25,4 +33,7 @@ public class ElementMusical {
   public void setDuree(float duree) {
     this.duree = duree;
   }
+
+
+
 }
