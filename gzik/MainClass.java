@@ -1,5 +1,7 @@
 
 package gzik;
+import gzik.*;
+import gzik.Obj.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,14 +13,11 @@ import java.util.*;
 import java.util.*;
 import java.lang.*;
 
-import gzik.*;
-import gzik.obj.*;
-
 class MainClass {
 
   private static ArrayList<ElementMusical> listElementMusical;
-  private static ArrayList<ElementMusical> listAlbum;
-  private static ArrayList<ElementMusical> listPlaylist;
+  private static ArrayList<Album> listAlbum;
+  private static ArrayList<Playlist> listPlaylist;
 
   private static Dictionary dicGenre = new Hashtable();
   private static Dictionary dicCat = new Hashtable();
@@ -115,44 +114,38 @@ class MainClass {
 
       JSONObject objCtn = jsonObj.getJSONObject("collections");
 
-      JSONArray albums = objCtn.getJSONArray("albums");
-      int length = albums.length();
-      /* Chargement en memoire */
+      JSONArray albumsArr = objCtn.getJSONArray("albums");
+      int length = albumsArr.length();
+
       for(int i = 0; i < length; i++) {
-          JSONObject itm = albums.getJSONObject(i);
+          JSONObject itm = albumsArr.getJSONObject(i);
           Album obj = new Album();
           obj.setId(itm.getInt("id"));
           obj.setName(itm.getString("name"));
-          obj.setContent(itm.getString("content"));
+          obj.setArtiste(itm.getString("artiste"));
           obj.setDuree((float)itm.getDouble("duree"));
-
-          JSONArray chansonArr = itm.optJSONArray("chanson");
+          JSONArray chansonArr = itm.optJSONArray("em");
           int lengthChanson = chansonArr.length();
           for (int a = 0; a < lengthChanson; a++) {
-              obj.addChanson( chansonArr.optInt(a) );
+              obj.addEM( chansonArr.optInt(a) );
           }
-
           listAlbum.add(obj);
       }
 
-      JSONArray albums = objCtn.getJSONArray("playlists");
-      length = albums.length();
+      JSONArray playlistArr = objCtn.getJSONArray("playlists");
+      length = playlistArr.length();
 
       for(int i = 0; i < length; i++) {
-          JSONObject itm = albums.getJSONObject(i);
+          JSONObject itm = playlistArr.getJSONObject(i);
           Playlist obj = new Playlist();
           obj.setId(itm.getInt("id"));
           obj.setName(itm.getString("name"));
-          obj.setContent(itm.getString("content"));
-          obj.setDuree((float)itm.getDouble("duree"));
-
           JSONArray chansonArr = itm.optJSONArray("chanson");
           int lengthChanson = chansonArr.length();
           for (int a = 0; a < lengthChanson; a++) {
-              obj.addChanson( chansonArr.optInt(a) );
+              obj.addEM( chansonArr.optInt(a) );
           }
-
-          listPlaylist.add(em);
+          listPlaylist.add(obj);
       }
 
       jsonString = readFile(filePath2);
@@ -175,7 +168,7 @@ class MainClass {
       }
 
       JSONArray livreaudioArr = objCtn.getJSONArray("livreaudio");
-      int length = livreaudioArr.length();
+      length = livreaudioArr.length();
 
       for(int i = 0; i < length; i++) {
           JSONObject itm = livreaudioArr.getJSONObject(i);

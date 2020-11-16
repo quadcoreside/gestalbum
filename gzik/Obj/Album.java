@@ -1,4 +1,4 @@
-package gzik.obj;
+package gzik.Obj;
 import gzik.*;
 
 public class Album extends Collection {

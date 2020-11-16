@@ -1,4 +1,4 @@
-package gestalbum;
+package gzik.Obj;
 import gzik.*;
 
 public class LivreAudio extends ElementMusical {
