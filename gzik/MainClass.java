@@ -25,7 +25,9 @@ class MainClass {
 
   public static void main(String[] args) {
     loadData();
+    System.out.println( "DATA Loaded !" );
     readData();
+    System.out.println( "DATA Readed !" );
 
     /* Commande Exec */
     while (true) {
@@ -116,6 +118,7 @@ class MainClass {
 
       JSONArray albumsArr = objCtn.getJSONArray("albums");
       int length = albumsArr.length();
+      System.out.println( "albums: " + length );
 
       for(int i = 0; i < length; i++) {
           JSONObject itm = albumsArr.getJSONObject(i);
@@ -134,6 +137,7 @@ class MainClass {
 
       JSONArray playlistArr = objCtn.getJSONArray("playlists");
       length = playlistArr.length();
+      System.out.println( "playlists: " + length );
 
       for(int i = 0; i < length; i++) {
           JSONObject itm = playlistArr.getJSONObject(i);
@@ -154,6 +158,7 @@ class MainClass {
       /* Chargement en memoire */
       JSONArray chansonArr = objCtn.getJSONArray("chanson");
       length = chansonArr.length();
+      System.out.println( "chanson: " + length );
 
       for(int i = 0; i < length; i++) {
           JSONObject itm = chansonArr.getJSONObject(i);
