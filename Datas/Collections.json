@@ -7,32 +7,32 @@
         "artiste": "Milles Davis",
         "duree": "56",
         "dateSortie": "1959",
-        chanson: [ 6, 7, 8, 9 ]
+        em: [ 3, 2, 1 ]
       }, {
         "id" : 2,
         "name" : "Album 2",
         "artiste": "Milles Davis",
         "duree": "56",
         "dateSortie": "1959",
-        chanson: [ 6, 7, 8, 9 ]
+        em: [ 3 ]
       }, {
         "id" : 3,
         "name" : "Album 3",
         "artiste": "Milles Davis",
         "duree": "56",
         "dateSortie": "1959",
-        chanson: [ 6, 7, 8, 9 ]
+        em: [ 1, 2, 4 ]
       }
     ],
     "playlists": [
       {
         "id" : 1,
         "name" : "Ma Playlist Perso 1",
-         elementMusical: [ 6, 7, 8, 9 ]
+         em: [ 1, 2, 3, 4 ]
       },{
         "id" : 2,
         "name" : "Ma Playlist Perso 2",
-         elementMusical: [ 1, 2, 3, 4 ]
+         em: [ 4, 2, 1, 3 ]
       }
     ]
   }

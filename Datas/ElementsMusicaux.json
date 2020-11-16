@@ -3,36 +3,66 @@
     {
       "id" : 1,
       "name" : "Musique 1",
+      "artiste" : "Artiste 1",
+      "genre" : 1,
       "content" : "musique1.mp4",
       "duree" : 3
     }, {
       "id" : 2,
       "name" : "Musique 2",
+      "artiste" : "Artiste 2",
+      "genre" : 2,
       "content" : "musique2.mp4",
       "duree" : 3
     }, {
       "id" : 3,
-      "name" : "Musique 2",
+      "name" : "Musique 3",
+      "artiste" : "Artiste 3",
+      "genre" : 3,
       "content" : "musique3.mp4",
       "duree" : 3
+    }, {
+      "id" : 4,
+      "name" : "Musique Test",
+      "artiste" : "Artiste Test",
+      "genre" : 4,
+      "content" : "musique3.mp4",
+      "duree" : 5
     }
-  ]
+  ],
   "livreaudio" : [
     {
       "id" : 1,
-      "name" : "Musique 1",
+      "name" : "Livre Audio 1",
+      "auteur" : "Auteur 1",
+      "langues" : 1,
+      "categorie" : 1,
       "content" : "musique1.mp4",
       "duree" : 3
     }, {
       "id" : 2,
-      "name" : "Musique 2",
+      "name" : "Livre Audio 2",
+      "auteur" : "Auteur 2",
+      "langues" : 1,
+      "categorie" : 1,
       "content" : "musique2.mp4",
       "duree" : 3
     }, {
       "id" : 3,
-      "name" : "Musique 2",
+      "name" : "Livre Audio 3",
+      "auteur" : "Auteur 3",
+      "langues" : 1,
+      "categorie" : 1,
       "content" : "musique3.mp4",
       "duree" : 3
+    }, {
+      "id" : 4,
+      "name" : "Livre Audio TEST",
+      "auteur" : "Auteur 3",
+      "langues" : 2,
+      "categorie" : 3,
+      "content" : "musique_test.mp4",
+      "duree" : 10
     }
   ]
 }

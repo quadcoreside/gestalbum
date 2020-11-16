@@ -140,7 +140,7 @@ class MainClass {
           Playlist obj = new Playlist();
           obj.setId(itm.getInt("id"));
           obj.setName(itm.getString("name"));
-          JSONArray chansonArr = itm.optJSONArray("chanson");
+          JSONArray chansonArr = itm.optJSONArray("em");
           int lengthChanson = chansonArr.length();
           for (int a = 0; a < lengthChanson; a++) {
               obj.addEM( chansonArr.optInt(a) );
