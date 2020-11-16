@@ -217,8 +217,38 @@ class MainClass {
   }
 
 
-  private static void saveData() {
+  private static void saveData() { //https://crunchify.com/how-to-write-json-object-to-file-in-java/
+    // JSON object. Key value pairs are unordered. JSONObject supports java.util.Map interface.
+    JSONObject obj = new JSONObject();
+    obj.put("Name", "Crunchify.com");
+    obj.put("Author", "App Shah");
 
+    JSONArray company = new JSONArray();
+    company.add("Company: Facebook");
+    company.add("Company: PayPal");
+    company.add("Company: Google");
+    obj.put("Company List", company);
+    try {
+
+        // Constructs a FileWriter given a file name, using the platform's default charset
+        file = new FileWriter("/Users/Shared/crunchify.txt");
+        file.write(obj.toJSONString());
+        System.out.println(("Successfully Copied JSON Object to File...");
+        System.out.println(("\nJSON Object: " + obj);
+
+    } catch (IOException e) {
+        e.printStackTrace();
+
+    } finally {
+
+        try {
+            file.flush();
+            file.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
   }
 
   private static void loadData() {
