@@ -16,7 +16,7 @@ import gzik.*;
 
 class MainClass {
 
-  private static ArrayList<ElementMusical> listElementMusica;
+  private static ArrayList<ElementMusical> listElementMusical;
   private static Dictionary dicGenre = new Hashtable();
   private static Dictionary dicCat = new Hashtable();
   private static Dictionary dicLangue = new Hashtable();
@@ -33,20 +33,20 @@ class MainClass {
       System.out.println( "" );
       System.out.println( "-------------------PARCOURIR----------------------" );
       System.out.println( "lc: \tListe chanson d'un album" );
-      System.out.println( "ld: \tles titres des albums, rangés par date de sortie" );
-      System.out.println( "lg: \tles titres des albums, rangés par genre" );
-      System.out.println( "lp: \tles playlists, rangées par nom" );
-      System.out.println( "ll: \tles livres audio rangés par auteur" );
+      System.out.println( "ld: \tles titres des albums, ranges par date de sortie" );
+      System.out.println( "lg: \tles titres des albums, ranges par genre" );
+      System.out.println( "lp: \tles playlists, rangees par nom" );
+      System.out.println( "ll: \tles livres audio ranges par auteur" );
 
       System.out.println( "" );
       System.out.println( "-------------------EDITION----------------------" );
-      System.out.println( "c: \tRajout d’une nouvelle chanson" );
-      System.out.println( "a: \tRajout d’un nouvel album" );
-      System.out.println( "+: \tRajout d’une chanson existante à un album " );
-      System.out.println( "l: \tRajout d’un nouveau livre audio" );
-      System.out.println( "p: \tCréation d’une nouvelle playlist à partir de chansons et livres audio existants" );
-      System.out.println( "-: \tSuppression d’une playlist" );
-      System.out.println( "s: \tSauvegarde des playlists, des albums, des chansons et des livres audios dans les fichiers concernés." );
+      System.out.println( "c: \tRajout d\"une nouvelle chanson" );
+      System.out.println( "a: \tRajout d\"un nouvel album" );
+      System.out.println( "+: \tRajout d\"une chanson existante a un album " );
+      System.out.println( "l: \tRajout d\"un nouveau livre audio" );
+      System.out.println( "p: \tCreation d\"une nouvelle playlist a partir de chansons et livres audio existants" );
+      System.out.println( "-: \tSuppression d\"une playlist" );
+      System.out.println( "s: \tSauvegarde des playlists, des albums, des chansons et des livres audios dans les fichiers concernes." );
 
       System.out.println( "" );
       System.out.println( "q: \tQuitter" );
@@ -59,6 +59,7 @@ class MainClass {
 			}
 
       switch(choice) {
+        /* foreach */
         case "lc":
         break;
         case "ld":
@@ -70,8 +71,25 @@ class MainClass {
         case "ll":
         break;
 
+        /* edit */
+        case "c":
+        break;
+        case "a":
+        break;
+        case "+":
+        break;
+        case "l":
+        break;
+        case "p":
+        break;
+        case "-":
+        break;
+        case "s":
+          saveData();
+        break;
+
         default:
-        System.out.println( "ERREUR: Choix inconnu" );
+          System.out.println( "ERREUR: Choix inconnu" );
         break;
       }
 
@@ -102,9 +120,9 @@ class MainClass {
       e.printStackTrace();
     } catch (JSONException e) {
       e.printStackTrace();
-      System.out.println("Exception caught : " + e.getLocalizedMessage());
+      System.out.println("Une exception attrapee : " + e.getLocalizedMessage());
     } catch (Exception e){
-      System.out.println("Exception caught =" + e.getMessage());
+      System.out.println("Une exception attrapee =" + e.getMessage());
     }
   }
   private static String readFile(String file) throws IOException {
@@ -139,7 +157,7 @@ class MainClass {
 
     dicCat.put("1", "Jeunesse");
     dicCat.put("2", "Roman");
-    dicCat.put("3", "Théatre");
+    dicCat.put("3", "Theatre");
     dicCat.put("4", "Discours");
     dicCat.put("5", "Documetaire");
 
