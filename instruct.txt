@@ -1,4 +1,10 @@
 /*
+
+COMPILE  javac gzik\MainClass.java
+COMPILE  javac gzik\Obj\Album.java
+
+RUN      java gzik.MainClass
+
 Votre programme doit obligatoirement présenter les différentes thématiques suivantes :
    Héritage OK
    Sérialisation --> JSON

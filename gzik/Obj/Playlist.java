@@ -1,4 +1,5 @@
 package gzik.obj;
+import gzik.*;
 
 class Playlist extends Collection {
   private Integer id;

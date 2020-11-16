@@ -1,4 +1,5 @@
 package gestalbum;
+import gzik.*;
 
 class LivreAudio extends ElementMusical {
   private Integer id;

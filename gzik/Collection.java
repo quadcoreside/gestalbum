@@ -1,6 +1,6 @@
 package gzik;
 
-class Collection {
+public class Collection {
   private String name;
 
   public String getName() {

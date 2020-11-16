@@ -1,4 +1,5 @@
 package gzik.obj;
+import gzik.*;
 
 class Chanson extends ElementMusical {
   private Integer id;
@@ -18,10 +19,10 @@ class Chanson extends ElementMusical {
   public void setArtiste(String artiste) {
     this.artiste = artiste;
   }
-  public float getGenre() {
+  public int getGenre() {
     return genre;
   }
-  public void setGenre(float genre) {
+  public void setGenre(int genre) {
     this.genre = genre;
   }
 }
