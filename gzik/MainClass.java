@@ -233,8 +233,8 @@ class MainClass {
         // Constructs a FileWriter given a file name, using the platform's default charset
         file = new FileWriter("/Users/Shared/crunchify.txt");
         file.write(obj.toJSONString());
-        System.out.println(("Successfully Copied JSON Object to File...");
-        System.out.println(("\nJSON Object: " + obj);
+        System.out.println("Successfully Copied JSON Object to File...");
+        System.out.println("\nJSON Object: " + obj);
 
     } catch (IOException e) {
         e.printStackTrace();
