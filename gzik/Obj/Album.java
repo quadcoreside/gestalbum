@@ -5,6 +5,7 @@ public class Album extends Collection {
   private Integer id;
   private String artiste;
   private float duree;
+  private Integer date;
 
   public Integer getId() {
     return id;
@@ -25,5 +26,12 @@ public class Album extends Collection {
   }
   public void setDuree(float duree) {
     this.duree = duree;
+  }
+
+  public Integer getDate() {
+    return date;
+  }
+  public void setDate(Integer annee) {
+    this.date = date;
   }
 }

@@ -6,21 +6,21 @@
         "name" : "Album 1",
         "artiste": "Milles Davis",
         "duree": "56",
-        "dateSortie": "1959",
+        "date": "1959",
         em: [ 3, 2, 1 ]
       }, {
         "id" : 2,
         "name" : "Album 2",
         "artiste": "Milles Davis",
         "duree": "56",
-        "dateSortie": "1959",
+        "date": "2000",
         em: [ 3 ]
       }, {
         "id" : 3,
         "name" : "Album 3",
-        "artiste": "Milles Davis",
+        "artiste": "Album 3",
         "duree": "56",
-        "dateSortie": "1959",
+        "date": "2020",
         em: [ 1, 2, 4 ]
       }
     ],

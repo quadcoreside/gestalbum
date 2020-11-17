@@ -127,6 +127,7 @@ class MainClass {
           obj.setName(itm.getString("name"));
           obj.setArtiste(itm.getString("artiste"));
           obj.setDuree((float)itm.getDouble("duree"));
+          obj.setDate(itm.optInt("date"));
           JSONArray chansonArr = itm.optJSONArray("em");
           int lengthChanson = chansonArr.length();
           for (int a = 0; a < lengthChanson; a++) {
