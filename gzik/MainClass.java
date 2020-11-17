@@ -102,11 +102,11 @@ class MainClass {
 
   }
 
-  private static void readData(){
-    String fld = System.getProperty("user.dir") + "/Datas/";
-    String filePath = fld + "Collections.json";
-    String filePath2 = fld + "ElementsMusicaux.json";
+  static String fld = System.getProperty("user.dir") + "/Datas/";
+  static String filePath = fld + "Collections_Write.json";
+  static String filePath2 = fld + "ElementsMusicaux_Write.json";
 
+  private static void readData(){
     try
     {
       String jsonString = readFile(filePath);
@@ -219,10 +219,6 @@ class MainClass {
   }
   private static FileWriter file;
   private static void saveData() { //https://crunchify.com/how-to-write-json-object-to-file-in-java/
-    String fld = System.getProperty("user.dir") + "/Datas/";
-    String filePath = fld + "Collections_Write.json";
-    String filePath2 = fld + "ElementsMusicaux_Write.json";
-
     try {
       JSONObject coll = new JSONObject();
 
