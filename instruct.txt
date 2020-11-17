@@ -1,11 +1,12 @@
 /*
 
+duree === secondes !!
 
 Votre programme doit obligatoirement présenter les différentes thématiques suivantes :
    Héritage OK
    Sérialisation --> JSON
    Gestion des exceptions --> A faire
-   Les collections        --> OK à venie
+   Les collections        --> OK à venir
    Au moins une classe abstraite sera implémentée et au moins une interface sera utilisée
    Les fichiers doivent contenir au moins : 20 éléments, 3 albums et 2 playlists
 
