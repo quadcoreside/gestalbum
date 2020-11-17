@@ -5,21 +5,21 @@
         "id" : 1,
         "name" : "Album 1",
         "artiste": "Milles Davis",
-        "duree": "56",
+        "duree": 45,
         "date": "1959",
         em: [ 3, 2, 1 ]
       }, {
         "id" : 2,
         "name" : "Album 2",
         "artiste": "Milles Davis",
-        "duree": "56",
+        "duree": 30,
         "date": "2000",
         em: [ 3 ]
       }, {
         "id" : 3,
         "name" : "Album 3",
         "artiste": "Album 3",
-        "duree": "56",
+        "duree": 56,
         "date": "2020",
         em: [ 1, 2, 4 ]
       }
