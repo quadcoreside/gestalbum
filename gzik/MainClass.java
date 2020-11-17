@@ -112,12 +112,10 @@ class MainClass {
     try
     {
       String jsonString = readFile(filePath);
-      JSONObject jsonObj = new JSONObject(jsonString);
+      JSONObject objCtn = new JSONObject(jsonString);
       listAlbum = new ArrayList<Album>();
       listPlaylist = new ArrayList<Playlist>();
       listElementMusical = new ArrayList<ElementMusical>();
-
-      JSONObject objCtn = jsonObj.getJSONObject("collections");
 
       JSONArray albumsArr = objCtn.getJSONArray("albums");
       int length = albumsArr.length();
@@ -219,23 +217,25 @@ class MainClass {
         reader.close();
     }
   }
-
-
   private static void saveData() { //https://crunchify.com/how-to-write-json-object-to-file-in-java/
-    /*// JSON object. Key value pairs are unordered. JSONObject supports java.util.Map interface.
-    JSONObject obj = new JSONObject();
-    obj.put("Name", "Crunchify.com");
-    obj.put("Author", "App Shah");
+    String fld = System.getProperty("user.dir") + "/Datas/";
+    String filePath = fld + "Collections_Write.json";
+    String filePath2 = fld + "ElementsMusicaux_Write.json";
 
-    JSONArray company = new JSONArray();
-    company.add("Company: Facebook");
-    company.add("Company: PayPal");
-    company.add("Company: Google");
-    obj.put("Company List", company);
+    JSONArray albums = new JSONArray();
+    for (int i = 0; i < 0 ; i++) {
+      JSONObject obj = new JSONObject();
+      Album alb = listAlbum.get(i);
+      //obj.put("name", alb.getName());
+      albums.put(i, alb);
+    }
+
+    JSONObject coll = new JSONObject();
+    coll.put("albums", albums);
+    //  coll.put("playlists", playlists);
     try {
-
         // Constructs a FileWriter given a file name, using the platform's default charset
-        file = new FileWriter("/Users/Shared/crunchify.txt");
+        file = new FileWriter(filePath);
         file.write(obj.toJSONString());
         System.out.println("Successfully Copied JSON Object to File...");
         System.out.println("\nJSON Object: " + obj);
@@ -252,7 +252,7 @@ class MainClass {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }*/
+    }
   }
 
   private static void loadData() {

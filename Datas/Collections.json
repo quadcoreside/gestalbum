@@ -1,43 +1,41 @@
 {
-  "collections": {
-    "albums": [
-      {
-        "id" : 1,
-        "name" : "Album 1",
-        "artiste": "Milles Davis",
-        "duree": 45452,
-        "date": "1959",
-        "em": [ 3, 2, 1 ]
-      }, {
-        "id" : 2,
-        "name" : "Album 2",
-        "artiste": "Milles Davis",
-        "duree": 3045353,
-        "date": "2000",
-        "em": [ 3 ]
-      }, {
-        "id" : 3,
-        "name" : "Album 3",
-        "artiste": "Album 3",
-        "duree": 56543453,
-        "date": "2020",
-        "em": [ 1, 2, 4 ]
-      }
-    ],
-    "playlists": [
-      {
-        "id" : 1,
-        "name" : "Ma Playlist Perso 1",
-         "em": [ 1, 2, 3, 4 ]
-      },{
-        "id" : 2,
-        "name" : "Ma Playlist Perso 2",
-         "em": [ 4, 2, 1, 3 ]
-      },{
-        "id" : 2,
-        "name" : "Ma Playlist Perso 3",
-         "em": [ 2, 3, 4, 1 ]
-      }
-    ]
-  }
+  "albums": [
+    {
+      "id" : 1,
+      "name" : "Album 1",
+      "artiste": "Milles Davis",
+      "duree": 45452,
+      "date": "1959",
+      "em": [ 3, 2, 1 ]
+    }, {
+      "id" : 2,
+      "name" : "Album 2",
+      "artiste": "Milles Davis",
+      "duree": 3045353,
+      "date": "2000",
+      "em": [ 3 ]
+    }, {
+      "id" : 3,
+      "name" : "Album 3",
+      "artiste": "Album 3",
+      "duree": 56543453,
+      "date": "2020",
+      "em": [ 1, 2, 4 ]
+    }
+  ],
+  "playlists": [
+    {
+      "id" : 1,
+      "name" : "Ma Playlist Perso 1",
+       "em": [ 1, 2, 3, 4 ]
+    },{
+      "id" : 2,
+      "name" : "Ma Playlist Perso 2",
+       "em": [ 4, 2, 1, 3 ]
+    },{
+      "id" : 2,
+      "name" : "Ma Playlist Perso 3",
+       "em": [ 2, 3, 4, 1 ]
+    }
+  ]
 }
