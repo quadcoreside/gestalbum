@@ -12,8 +12,6 @@ import java.io.IOException;
 
 import org.json.*;
 import java.util.*;
-
-import java.util.*;
 import java.lang.*;
 
 class MainClass {
@@ -166,6 +164,7 @@ class MainClass {
           JSONObject itm = chansonArr.getJSONObject(i);
           Chanson obj = new Chanson();
           obj.setId(itm.getInt("id"));
+          obj.setIsLivreAudio(false);
           obj.setName(itm.getString("name"));
           obj.setArtiste(itm.getString("artiste"));
           obj.setGenre(itm.getInt("genre"));
@@ -181,6 +180,7 @@ class MainClass {
           JSONObject itm = livreaudioArr.getJSONObject(i);
           LivreAudio obj = new LivreAudio();
           obj.setId(itm.getInt("id"));
+          obj.setIsLivreAudio(true);
           obj.setName(itm.getString("name"));
           obj.setAuteur(itm.getString("auteur"));
           obj.setLangues(itm.getInt("langues"));
@@ -217,34 +217,111 @@ class MainClass {
         reader.close();
     }
   }
+  private static FileWriter file;
   private static void saveData() { //https://crunchify.com/how-to-write-json-object-to-file-in-java/
     String fld = System.getProperty("user.dir") + "/Datas/";
     String filePath = fld + "Collections_Write.json";
     String filePath2 = fld + "ElementsMusicaux_Write.json";
 
-    JSONArray albums = new JSONArray();
-    for (int i = 0; i < 0 ; i++) {
-      JSONObject obj = new JSONObject();
-      Album alb = listAlbum.get(i);
-      //obj.put("name", alb.getName());
-      albums.put(i, alb);
-    }
-
-    JSONObject coll = new JSONObject();
-    coll.put("albums", albums);
-    //  coll.put("playlists", playlists);
     try {
-        // Constructs a FileWriter given a file name, using the platform's default charset
-        file = new FileWriter(filePath);
-        file.write(obj.toJSONString());
-        System.out.println("Successfully Copied JSON Object to File...");
-        System.out.println("\nJSON Object: " + obj);
+      JSONObject coll = new JSONObject();
+
+      JSONArray albums = new JSONArray();
+      for (int i = 0; i < listAlbum.size(); i++) {
+        JSONObject obj = new JSONObject();
+        Album alb = listAlbum.get(i);
+        obj.put("id", alb.getId());
+        obj.put("name", alb.getName());
+        obj.put("artiste", alb.getArtiste());
+        obj.put("duree", alb.getDuree());
+        obj.put("date", alb.getDate());
+        JSONArray em = new JSONArray();
+        ArrayList<Integer> listEm = alb.getEM();
+        for (int a = 0; a < listEm.size(); a++) {
+          em.put(listEm.get(a));
+        }
+        obj.put("em", em);
+
+        albums.put(i, obj);
+      }
+      coll.put("albums", albums);
+
+      JSONArray playlists = new JSONArray();
+      for (int i = 0; i < listPlaylist.size(); i++) {
+        JSONObject obj = new JSONObject();
+        Playlist pl = listPlaylist.get(i);
+        obj.put("id", pl.getId());
+        obj.put("name", pl.getName());
+        JSONArray em = new JSONArray();
+        ArrayList<Integer> listEm = pl.getEM();
+        for (int a = 0; a < listEm.size(); a++) {
+          em.put(listEm.get(a));
+        }
+        obj.put("em", em);
+
+        albums.put(i, obj);
+      }
+      coll.put("playlists", playlists);
+
+      file = new FileWriter(filePath);
+      file.write(coll.toString());
+
+      JSONObject emObj = new JSONObject();
+
+      JSONArray chanson = new JSONArray();
+      int nbrChanson = 0;
+      for (int i = 0; i < listElementMusical.size(); i++) {
+        ElementMusical em = listElementMusical.get(i);
+        if (!em.getIsLivreAudio()) {
+          Chanson ch = (Chanson)em;
+          JSONObject obj = new JSONObject();
+          obj.put("id", ch.getId());
+          obj.put("isLivreAudio", ch.getIsLivreAudio());
+          obj.put("name", ch.getName());
+          obj.put("artiste", ch.getArtiste());
+          obj.put("genre", ch.getGenre());
+          obj.put("duree", ch.getDuree());
+          obj.put("content", ch.getContent());
+          chanson.put(nbrChanson, obj);
+          nbrChanson++;
+        }
+      }
+      emObj.put("chanson", chanson);
+
+      JSONArray livreaudio = new JSONArray();
+      int nbrLivreAdio = 0;
+      for (int i = 0; i < listElementMusical.size(); i++) {
+        ElementMusical em = listElementMusical.get(i);
+        if (em.getIsLivreAudio()) {
+          LivreAudio la = (LivreAudio)em;
+          JSONObject obj = new JSONObject();
+          obj.put("id", la.getId());
+          obj.put("isLivreAudio", la.getIsLivreAudio());
+          obj.put("name", la.getName());
+          obj.put("auteur", la.getAuteur());
+          obj.put("langues", la.getLangues());
+          obj.put("categorie", la.getCategorie());
+          obj.put("duree", la.getDuree());
+          obj.put("content", la.getContent());
+          livreaudio.put(nbrLivreAdio, obj);
+          nbrLivreAdio++;
+        }
+      }
+      emObj.put("livreaudio", livreaudio);
+
+      file = new FileWriter(filePath2);
+      file.write(emObj.toString());
+
+      System.out.println("Successfully Copied JSON Object to File...");
+      System.out.println("\nJSON Object: " + coll);
 
     } catch (IOException e) {
         e.printStackTrace();
 
+    } catch (JSONException e) {
+      e.printStackTrace();
+      System.out.println("Une exception attrapee : " + e.getLocalizedMessage());
     } finally {
-
         try {
             file.flush();
             file.close();
