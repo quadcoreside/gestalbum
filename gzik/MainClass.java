@@ -218,7 +218,7 @@ class MainClass {
     }
   }
   private static FileWriter file;
-  private static void saveData() { //https://crunchify.com/how-to-write-json-object-to-file-in-java/
+  private static void saveData() {
     try {
       JSONObject coll = new JSONObject();
 
