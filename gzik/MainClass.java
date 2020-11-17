@@ -30,7 +30,7 @@ class MainClass {
     loadData();
     System.out.println( "DATA Loaded !" );
     readData();
-    System.out.println( "DATA Readed !" );
+    System.out.println( "DATA Read !" );
 
     /* Commande Exec */
     while (true) {

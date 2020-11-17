@@ -1,6 +1,6 @@
 /*
 
-duree === secondes !!
+mettre en place une fonction ou passe toutes les exception afin de les logger dans un fichier logs.txt
 
 Votre programme doit obligatoirement présenter les différentes thématiques suivantes :
    Héritage OK
