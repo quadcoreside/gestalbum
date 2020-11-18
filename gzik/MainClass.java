@@ -352,10 +352,14 @@ class MainClass {
   }
   private static void titreAlbumParDate(){
     System.out.println("Liste des albums (Par ordre alphabétique) : " );
+    int [] filtredate = {};
     for (int i = 0; i < listAlbum.size(); i++) {
       Album alb = listAlbum.get(i);
-      System.out.println(alb.getName());
+      System.out.println(alb.getName() + " " + alb.getDate());
     }
+    Arrays.sort(filtredate);
+    
+
     /*
     Album alb = listAlbum.get(i)
     dz
