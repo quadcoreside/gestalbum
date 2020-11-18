@@ -103,16 +103,30 @@ class MainClass {
 
   }
 
+  private static void titreAlbumParDate(){
+    System.out.println("Liste des albums (Par ordre alphabétique) : " );
+    int [] filtredate = {};
+    for (int i = 0; i < listAlbum.size(); i++) {
+      Album alb = listAlbum.get(i);
+      System.out.println(alb.getName() + " " + alb.getDate());
+    }
+    Arrays.sort(filtredate);
+
+
+    /*
+    Album alb = listAlbum.get(i)
+    dz
+    */
+  }
+
   static String fld = System.getProperty("user.dir") + "/Datas/";
-  static String filePathW = fld + "Collections_Write.json";
-  static String filePathR = fld + "Collections.json";
-  static String filePathW2 = fld + "ElementsMusicaux_Write.json";
-  static String filePathR2 = fld + "ElementsMusicaux.json";
+  static String filePathColl = fld + "Collections_Write.json";
+  static String filePathEM = fld + "ElementsMusicaux_Write.json";
 
   private static void readData(){
     try
     {
-      String jsonString = readFile(filePathR);
+      String jsonString = readFile(filePathColl);
       JSONObject objCtn = new JSONObject(jsonString);
       listAlbum = new ArrayList<Album>();
       listPlaylist = new ArrayList<Playlist>();
@@ -155,7 +169,7 @@ class MainClass {
           listPlaylist.add(obj);
       }
 
-      jsonString = readFile(filePathR2);
+      jsonString = readFile(filePathEM);
       objCtn = new JSONObject(jsonString);
 
       /* Chargement en memoire */
@@ -262,7 +276,7 @@ class MainClass {
       }
       coll.put("playlists", playlists);
 
-      file = new FileWriter(filePathW);
+      file = new FileWriter(filePathColl);
       file.write(coll.toString());
 
       JSONObject emObj = new JSONObject();
@@ -308,7 +322,7 @@ class MainClass {
       }
       emObj.put("livreaudio", livreaudio);
 
-      file = new FileWriter(filePathW2);
+      file = new FileWriter(filePathEM);
       file.write(emObj.toString());
 
       System.out.println("Successfully Copied JSON Object to File...");
@@ -350,19 +364,5 @@ class MainClass {
     dicLangue.put("4", "Espagnol");
     dicLangue.put("5", "Allemand");
   }
-  private static void titreAlbumParDate(){
-    System.out.println("Liste des albums (Par ordre alphabétique) : " );
-    int [] filtredate = {};
-    for (int i = 0; i < listAlbum.size(); i++) {
-      Album alb = listAlbum.get(i);
-      System.out.println(alb.getName() + " " + alb.getDate());
-    }
-    Arrays.sort(filtredate);
-    
 
-    /*
-    Album alb = listAlbum.get(i)
-    dz
-    */
-  }
 }
