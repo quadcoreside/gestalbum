@@ -31,7 +31,7 @@ public class Album extends Collection {
   public Integer getDate() {
     return date;
   }
-  public void setDate(Integer annee) {
+  public void setDate(Integer date) {
     this.date = date;
   }
 }
