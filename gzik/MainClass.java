@@ -15,6 +15,9 @@ import java.util.*;
 import java.lang.*;
 
 class MainClass {
+  static String fld = System.getProperty("user.dir") + "/Datas/";
+  static String filePathColl = fld + "Collections_Write.json";
+  static String filePathEM = fld + "ElementsMusicaux_Write.json";
 
   private static ArrayList<ElementMusical> listElementMusical;
   private static ArrayList<Album> listAlbum;
@@ -118,10 +121,7 @@ class MainClass {
     dz
     */
   }
-
-  static String fld = System.getProperty("user.dir") + "/Datas/";
-  static String filePathColl = fld + "Collections_Write.json";
-  static String filePathEM = fld + "ElementsMusicaux_Write.json";
+  
 
   private static void readData(){
     try
