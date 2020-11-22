@@ -23,9 +23,9 @@ class MainClass {
   private static ArrayList<Album> listAlbum;
   private static ArrayList<Playlist> listPlaylist;
 
-  private static Dictionary dicGenre = new Hashtable();
-  private static Dictionary dicCat = new Hashtable();
-  private static Dictionary dicLangue = new Hashtable();
+  private static Map<Integer, String> dicGenre = new Hashtable();
+  private static Map<Integer, String> dicCat = new Hashtable();
+  private static Map<Integer, String> dicLangue = new Hashtable();
 
   public static void main(String[] args) {
     loadData();
@@ -69,16 +69,18 @@ class MainClass {
       switch(choice) {
         /* foreach */
         case "lc":
-        listeChansonAlbum();
+          listeChansonAlbum();
         break;
         case "ld":
-        titreAlbumParDate();
+          titreAlbumParDate();
         break;
         case "lg":
+          listeTitreRangeParGenre();
         break;
         case "lp":
         break;
         case "ll":
+          listeLivreAudioRangeParAuteur();
         break;
 
         /* edit */
@@ -131,7 +133,7 @@ class MainClass {
     }
     Scanner scan = new Scanner(System.in);
     println("Veuillez choisir l'album: ");
-    while (!scan.hasNextInt() && (scan.nextInt() < listAlbum.size() && scan.nextInt() > 0)) scan.next();
+    while (!scan.hasNextInt()) scan.next();
     int choix = scan.nextInt();
 
     Album albch = listAlbum.get(choix - 1);
@@ -151,6 +153,89 @@ class MainClass {
     }
   }
 
+  private static int a = 0;
+  private static void listeTitreRangeParGenre() {
+    int[] g;
+    Map<Integer, Integer> listPlayable = new Hashtable<>();
+    a = 0; // compteur global
+
+    dicGenre.forEach((k, v) -> {
+      System.out.println("GENRE \t Nom : " + v + "\t ID : " + k);
+      for (int i = 0; i < listElementMusical.size(); i++) {
+        ElementMusical em = listElementMusical.get(i);
+        if (!em.getIsLivreAudio()) {
+          Chanson ch = (Chanson)em;
+          if (ch.getGenre() == k) {
+            println((a+1) + " . " + ch.getName() + "\t" + ch.getArtiste() + "\t" + ch.getGenre());
+            listPlayable.put(a, ch.getId());
+            a++;
+          }
+        }
+      }
+    });
+
+    println("");
+    Scanner scan = new Scanner(System.in);
+    println("Veuillez choisir une chanson (" + listPlayable.size() + "): ");
+    while (!scan.hasNextInt()) scan.next();
+    int choix = scan.nextInt();
+    int id = listPlayable.get(choix - 1);
+
+    Chanson chch = (Chanson)getEmById(id);
+    println("Vous avez choisit: " + choix + " \n " + chch.getName() + "\t" + chch.getArtiste() + "\t" + chch.getGenre() + "\t" + chch.getDuree());
+  }
+
+  private static void listeLivreAudioRangeParAuteur() {
+    int[] g;
+    Map<String, Integer> distinctAuteur = new Hashtable<>();
+    Map<Integer, Integer> listPlayable = new Hashtable<>();
+
+    a = 0;
+    for (int i = 0; i < listElementMusical.size(); i++) {
+      if (listElementMusical.get(i).getIsLivreAudio()) {
+        ElementMusical em = listElementMusical.get(i);
+        if (em.getIsLivreAudio()) {
+          LivreAudio la = (LivreAudio)em;
+          String key = la.getAuteur().toLowerCase();
+          println("key = " + key);
+          if (!distinctAuteur.containsKey(key)) {
+            distinctAuteur.put(key, a);
+            a++;
+          }
+        }
+      }
+    }
+    println("Nombre d auteur different: " + distinctAuteur.size() + "\n");
+
+    a = 0;
+    distinctAuteur.forEach((k, v) -> {
+      System.out.println("-> AUTEUR \t Nom : " + k.substring(0, 1).toUpperCase() + k.substring(1) + "\t Num : " + v);
+      for (int i = 0; i < listElementMusical.size(); i++) {
+        ElementMusical em = listElementMusical.get(i);
+        if (em.getIsLivreAudio()) {
+          LivreAudio la = (LivreAudio)em;
+          String key = la.getAuteur().toLowerCase();
+          if (k.equals(key)) {
+              println((a+1) + " . " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + la.getDuree());
+              listPlayable.put(a, la.getId());
+              a++;
+          }
+        }
+      }
+    });
+
+    println("");
+    Scanner scan = new Scanner(System.in);
+    println("Veuillez choisir un livre audio (" + listPlayable.size() + "): ");
+    while (!scan.hasNextInt()) scan.next();
+    int choix = scan.nextInt();
+
+    int id = listPlayable.get(choix - 1);
+
+    LivreAudio la = (LivreAudio)getEmById(id);
+    println("Vous avez choisit: " + choix + " \n " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + la.getDuree());
+  }
+
   private static ElementMusical getEmById(int id) {
     ElementMusical em = null;
     for (int i = 0; i < listElementMusical.size(); i++) {
@@ -161,9 +246,14 @@ class MainClass {
     }
     return em;
   }
-
   public static void println(String str) {
       System.out.println(str);
+  }
+  private static String getLangById(int id) {
+    return (String)dicCat.get(id);
+  }
+  private static String getCatById(int id) {
+    return (String)dicCat.get(id);
   }
 
 
@@ -388,25 +478,24 @@ class MainClass {
         }
     }
   }
-
   private static void loadData() {
-    dicGenre.put("1", "Jazz");
-    dicGenre.put("2", "Hip-Hop");
-    dicGenre.put("3", "Rock");
-    dicGenre.put("4", "Pop");
-    dicGenre.put("5", "Rap");
+    dicGenre.put(1, "Jazz");
+    dicGenre.put(2, "Hip-Hop");
+    dicGenre.put(3, "Rock");
+    dicGenre.put(4, "Pop");
+    dicGenre.put(5, "Rap");
 
-    dicCat.put("1", "Jeunesse");
-    dicCat.put("2", "Roman");
-    dicCat.put("3", "Theatre");
-    dicCat.put("4", "Discours");
-    dicCat.put("5", "Documetaire");
+    dicCat.put(1, "Jeunesse");
+    dicCat.put(2, "Roman");
+    dicCat.put(3, "Theatre");
+    dicCat.put(4, "Discours");
+    dicCat.put(5, "Documetaire");
 
-    dicLangue.put("1", "Francais");
-    dicLangue.put("2", "Anglais");
-    dicLangue.put("3", "Italien");
-    dicLangue.put("4", "Espagnol");
-    dicLangue.put("5", "Allemand");
+    dicLangue.put(1, "Francais");
+    dicLangue.put(2, "Anglais");
+    dicLangue.put(3, "Italien");
+    dicLangue.put(4, "Espagnol");
+    dicLangue.put(5, "Allemand");
   }
 
 }

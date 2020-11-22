@@ -1,1 +1,82 @@
-{"chanson":[{"artiste":"Artiste 1","name":"Musique 1","genre":1,"isLivreAudio":false,"duree":32565,"id":1,"content":"musique1.mp4"},{"artiste":"Artiste 2","name":"Musique 2","genre":2,"isLivreAudio":false,"duree":3600,"id":2,"content":"musique2.mp4"},{"artiste":"Artiste 3","name":"Musique 3","genre":3,"isLivreAudio":false,"duree":3523,"id":3,"content":"musique3.mp4"},{"artiste":"Artiste Test","name":"Musique Test","genre":4,"isLivreAudio":false,"duree":5335,"id":4,"content":"musique3.mp4"}],"livreaudio":[{"langues":1,"categorie":1,"name":"Livre Audio 1","isLivreAudio":true,"duree":35356,"id":1,"content":"musique1.mp4","auteur":"Auteur 1"},{"langues":1,"categorie":1,"name":"Livre Audio 2","isLivreAudio":true,"duree":3523,"id":2,"content":"musique2.mp4","auteur":"Auteur 2"},{"langues":1,"categorie":1,"name":"Livre Audio 3","isLivreAudio":true,"duree":35355,"id":3,"content":"musique3.mp4","auteur":"Auteur 3"},{"langues":2,"categorie":3,"name":"Livre Audio TEST","isLivreAudio":true,"duree":10352,"id":4,"content":"musique_test.mp4","auteur":"Auteur 3"}]}
+{
+   "chanson":[
+      {
+         "artiste":"Artiste 1",
+         "name":"Musique 1",
+         "genre":1,
+         "isLivreAudio":false,
+         "duree":32565,
+         "id":1,
+         "content":"musique1.mp4"
+      },
+      {
+         "artiste":"Artiste 2",
+         "name":"Musique 2",
+         "genre":2,
+         "isLivreAudio":false,
+         "duree":3600,
+         "id":2,
+         "content":"musique2.mp4"
+      },
+      {
+         "artiste":"Artiste 3",
+         "name":"Musique 3",
+         "genre":3,
+         "isLivreAudio":false,
+         "duree":3523,
+         "id":3,
+         "content":"musique3.mp4"
+      },
+      {
+         "artiste":"Artiste Test",
+         "name":"Musique Test",
+         "genre":4,
+         "isLivreAudio":false,
+         "duree":5335,
+         "id":4,
+         "content":"musique3.mp4"
+      }
+   ],
+   "livreaudio":[
+      {
+         "langues":1,
+         "categorie":1,
+         "name":"Livre Audio 1",
+         "isLivreAudio":true,
+         "duree":35356,
+         "id":5,
+         "content":"musique1.mp4",
+         "auteur":"Auteur 1"
+      },
+      {
+         "langues":1,
+         "categorie":1,
+         "name":"Livre Audio 2",
+         "isLivreAudio":true,
+         "duree":3523,
+         "id":6,
+         "content":"musique2.mp4",
+         "auteur":"Auteur 2"
+      },
+      {
+         "langues":1,
+         "categorie":1,
+         "name":"Livre Audio 3",
+         "isLivreAudio":true,
+         "duree":35355,
+         "id":7,
+         "content":"musique3.mp4",
+         "auteur":"Auteur 3"
+      },
+      {
+         "langues":2,
+         "categorie":3,
+         "name":"Livre Audio TEST",
+         "isLivreAudio":true,
+         "duree":10352,
+         "id":8,
+         "content":"musique_test.mp4",
+         "auteur":"Auteur 3"
+      }
+   ]
+}
