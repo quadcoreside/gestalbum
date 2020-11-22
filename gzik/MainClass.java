@@ -69,6 +69,7 @@ class MainClass {
       switch(choice) {
         /* foreach */
         case "lc":
+        listeChansonAlbum();
         break;
         case "ld":
         titreAlbumParDate();
@@ -121,7 +122,50 @@ class MainClass {
     dz
     */
   }
-  
+
+  private static void listeChansonAlbum()
+  {
+    for (int i = 0; i < listAlbum.size() ; i++) {
+      Album alb = listAlbum.get(i);
+      println((i+1) + ". " + alb.getName() + "\t" + alb.getArtiste() + "\t" + alb.getDate() + "\t" + alb.getDuree());
+    }
+    Scanner scan = new Scanner(System.in);
+    println("Veuillez choisir l'album: ");
+    while (!scan.hasNextInt() && (scan.nextInt() < listAlbum.size() && scan.nextInt() > 0)) scan.next();
+    int choix = scan.nextInt();
+
+    Album albch = listAlbum.get(choix - 1);
+    println("Vous avez choisit: " + choix + " \n " + albch.getName() + "\t" + albch.getArtiste() + "\t" + albch.getDate() + "\t" + albch.getDuree()
+              + " (" + albch.getEM().size() + " chanson)");
+
+    ArrayList<Integer> idChanson = albch.getEM();
+    for (int i = 0; i < idChanson.size(); i++) {
+      int id = idChanson.get(i);
+      ElementMusical em = getEmById(id);
+      if (em != null && !em.getIsLivreAudio()) {
+        Chanson ch = (Chanson)em;
+        println((i+1) + " . " + ch.getName() + "\t" + ch.getArtiste() + "\t" + ch.getGenre());
+      } else {
+        println("ERR: Une chason n a pas ete trouver dans l album, verifier qu'il s agit bien d une chanson: " + id);
+      }
+    }
+  }
+
+  private static ElementMusical getEmById(int id) {
+    ElementMusical em = null;
+    for (int i = 0; i < listElementMusical.size(); i++) {
+      em = listElementMusical.get(i);
+      if (em.getId() == id) {
+        break;
+      }
+    }
+    return em;
+  }
+
+  public static void println(String str) {
+      System.out.println(str);
+  }
+
 
   private static void readData(){
     try
