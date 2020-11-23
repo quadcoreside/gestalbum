@@ -67,7 +67,6 @@ class MainClass {
 			}
 
       switch(choice) {
-        /* foreach */
         case "lc":
           listeChansonAlbum();
         break;
@@ -104,9 +103,7 @@ class MainClass {
           System.out.println( "ERREUR: Choix inconnu" );
         break;
       }
-
     }
-
   }
 
   private static void titreAlbumParDate(){
@@ -125,8 +122,7 @@ class MainClass {
     */
   }
 
-  private static void listeChansonAlbum()
-  {
+  private static void listeChansonAlbum() {
     for (int i = 0; i < listAlbum.size() ; i++) {
       Album alb = listAlbum.get(i);
       println((i+1) + ". " + alb.getName() + "\t" + alb.getArtiste() + "\t" + alb.getDate() + "\t" + alb.getDuree());
@@ -152,7 +148,6 @@ class MainClass {
       }
     }
   }
-
   private static int a = 0;
   private static void listeTitreRangeParGenre() {
     int[] g;
@@ -166,7 +161,7 @@ class MainClass {
         if (!em.getIsLivreAudio()) {
           Chanson ch = (Chanson)em;
           if (ch.getGenre() == k) {
-            println((a+1) + " . " + ch.getName() + "\t" + ch.getArtiste() + "\t" + ch.getGenre());
+            println("\t" + (a+1) + " . " + ch.getName() + "\t" + ch.getArtiste() + "\t" + ch.getGenre());
             listPlayable.put(a, ch.getId());
             a++;
           }
@@ -184,7 +179,6 @@ class MainClass {
     Chanson chch = (Chanson)getEmById(id);
     println("Vous avez choisit: " + choix + " \n " + chch.getName() + "\t" + chch.getArtiste() + "\t" + chch.getGenre() + "\t" + chch.getDuree());
   }
-
   private static void listeLivreAudioRangeParAuteur() {
     int[] g;
     Map<String, Integer> distinctAuteur = new Hashtable<>();
@@ -216,7 +210,7 @@ class MainClass {
           LivreAudio la = (LivreAudio)em;
           String key = la.getAuteur().toLowerCase();
           if (k.equals(key)) {
-              println((a+1) + " . " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + la.getDuree());
+              println("\t" + (a+1) + " . " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + la.getDuree());
               listPlayable.put(a, la.getId());
               a++;
           }
@@ -227,6 +221,7 @@ class MainClass {
     println("");
     Scanner scan = new Scanner(System.in);
     println("Veuillez choisir un livre audio (" + listPlayable.size() + "): ");
+
     while (!scan.hasNextInt()) scan.next();
     int choix = scan.nextInt();
 
@@ -246,16 +241,15 @@ class MainClass {
     }
     return em;
   }
-  public static void println(String str) {
-      System.out.println(str);
-  }
   private static String getLangById(int id) {
     return (String)dicCat.get(id);
   }
   private static String getCatById(int id) {
     return (String)dicCat.get(id);
   }
-
+  public static void println(String str) {
+      System.out.println(str);
+  }
 
   private static void readData(){
     try
