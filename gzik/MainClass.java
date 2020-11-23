@@ -35,7 +35,7 @@ class MainClass {
 
     /* Commande Exec */
     while (true) {
-			Scanner scan = new Scanner(System.in);
+			Scanner sc = new Scanner(System.in);
       System.out.println( "Welcom" );
 
       System.out.println( "" );
@@ -60,7 +60,7 @@ class MainClass {
       System.out.println( "q: \tQuitter" );
 			System.out.println( "" );
 
-			String choice = scan.next();
+			String choice = sc.next();
 
 			if (choice.equals("q")) {
 				return;
@@ -127,10 +127,13 @@ class MainClass {
       Album alb = listAlbum.get(i);
       println((i+1) + ". " + alb.getName() + "\t" + alb.getArtiste() + "\t" + alb.getDate() + "\t" + alb.getDuree());
     }
-    Scanner scan = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
     println("Veuillez choisir l'album: ");
-    while (!scan.hasNextInt()) scan.next();
-    int choix = scan.nextInt();
+    int choix = 1;
+    do {
+        while (!sc.hasNextInt()) sc.next();
+        choix = sc.nextInt();
+    } while (choix < 0 || choix > listAlbum.size());
 
     Album albch = listAlbum.get(choix - 1);
     println("Vous avez choisit: " + choix + " \n " + albch.getName() + "\t" + albch.getArtiste() + "\t" + albch.getDate() + "\t" + albch.getDuree()
@@ -170,10 +173,15 @@ class MainClass {
     });
 
     println("");
-    Scanner scan = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
     println("Veuillez choisir une chanson (" + listPlayable.size() + "): ");
-    while (!scan.hasNextInt()) scan.next();
-    int choix = scan.nextInt();
+
+    int choix = 1;
+    do {
+        while (!sc.hasNextInt()) sc.next();
+        choix = sc.nextInt();
+    } while (choix < 0 || choix > listPlayable.size());
+
     int id = listPlayable.get(choix - 1);
 
     Chanson chch = (Chanson)getEmById(id);
@@ -219,11 +227,14 @@ class MainClass {
     });
 
     println("");
-    Scanner scan = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
     println("Veuillez choisir un livre audio (" + listPlayable.size() + "): ");
 
-    while (!scan.hasNextInt()) scan.next();
-    int choix = scan.nextInt();
+    int choix = 1;
+    do {
+        while (!sc.hasNextInt()) sc.next();
+        choix = sc.nextInt();
+    } while (choix < 0 || choix > listPlayable.size());
 
     int id = listPlayable.get(choix - 1);
 
