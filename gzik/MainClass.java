@@ -106,6 +106,7 @@ class MainClass {
     }
   }
 
+  /*************************LISTE reste 2 methode à finir***********************************/
   private static void titreAlbumParDate(){
     System.out.println("Liste des albums (Par ordre alphabétique) : " );
     int [] filtredate = {};
@@ -241,6 +242,9 @@ class MainClass {
     LivreAudio la = (LivreAudio)getEmById(id);
     println("Vous avez choisit: " + choix + " \n " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + la.getDuree());
   }
+
+  /*************************EDITION à faire***********************************/
+
 
   private static ElementMusical getEmById(int id) {
     ElementMusical em = null;
