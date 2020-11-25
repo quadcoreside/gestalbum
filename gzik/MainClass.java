@@ -77,6 +77,7 @@ class MainClass {
           listeTitreRangeParGenre();
         break;
         case "lp":
+          listPlaylistRangeParNom();
         break;
         case "ll":
           listeLivreAudioRangeParAuteur();
@@ -121,6 +122,10 @@ class MainClass {
     Album alb = listAlbum.get(i)
     dz
     */
+  }
+
+  private static void listPlaylistRangeParNom() {
+
   }
 
   private static void listeChansonAlbum() {
