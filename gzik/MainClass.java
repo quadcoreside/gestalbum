@@ -60,8 +60,6 @@ class MainClass {
       System.out.println( "q: \tQuitter" );
 			System.out.println( "" );
 
-      /* Test */
-      titreAlbumParDate();
 
 			String choice = sc.next();
 
@@ -194,7 +192,7 @@ class MainClass {
   private static void listeChansonAlbum() {
     for (int i = 0; i < listAlbum.size() ; i++) {
       Album alb = listAlbum.get(i);
-      println((i+1) + ". " + alb.getName() + "\t" + alb.getArtiste() + "\t" + alb.getDate() + "\t" + alb.getDuree());
+      println((i+1) + ". " + alb.getName() + "\t" + alb.getArtiste() + "\t" + alb.getDate() + "\t" + getDureeMin(alb.getDuree()));
     }
     Scanner sc = new Scanner(System.in);
     println("Veuillez choisir l'album: ");
@@ -205,7 +203,7 @@ class MainClass {
     } while (choix < 0 || choix > listAlbum.size());
 
     Album albch = listAlbum.get(choix - 1);
-    println("Vous avez choisit: " + choix + " \n " + albch.getName() + "\t" + albch.getArtiste() + "\t" + albch.getDate() + "\t" + albch.getDuree()
+    println("Vous avez choisit: " + choix + " \n " + albch.getName() + "\t" + albch.getArtiste() + "\t" + albch.getDate() + "\t" + getDureeMin(albch.getDuree())
               + " (" + albch.getEM().size() + " chanson)");
 
     ArrayList<Integer> idChanson = albch.getEM();
@@ -254,7 +252,7 @@ class MainClass {
     int id = listPlayable.get(choix - 1);
 
     Chanson chch = (Chanson)getEmById(id);
-    println("Vous avez choisit: " + choix + " \n " + chch.getName() + "\t" + chch.getArtiste() + "\t" + chch.getGenre() + "\t" + chch.getDuree());
+    println("Vous avez choisit: " + choix + " \n " + chch.getName() + "\t" + chch.getArtiste() + "\t" + chch.getGenre() + "\t" + getDureeMin(chch.getDuree()));
   }
   private static void listeLivreAudioRangeParAuteur() {
     int[] g;
