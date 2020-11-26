@@ -8,8 +8,7 @@
          "duree":32565,
          "id":1,
          "content":"musique1.mp4"
-      },
-      {
+      }, {
          "artiste":"Artiste 2",
          "name":"Musique 2",
          "genre":2,
@@ -17,8 +16,7 @@
          "duree":3600,
          "id":2,
          "content":"musique2.mp4"
-      },
-      {
+      }, {
          "artiste":"Artiste 3",
          "name":"Musique 3",
          "genre":3,
@@ -26,14 +24,141 @@
          "duree":3523,
          "id":3,
          "content":"musique3.mp4"
-      },
-      {
+      }, {
          "artiste":"Artiste Test",
          "name":"Musique Test",
          "genre":4,
          "isLivreAudio":false,
          "duree":5335,
          "id":4,
+         "content":"musique3.mp4"
+      }, {
+         "artiste":"Artiste Test",
+         "name":"Musique Test",
+         "genre":5,
+         "isLivreAudio":false,
+         "duree":120,
+         "id":5,
+         "content":"musique3.mp4"
+      }, {
+         "artiste":"Artiste Test",
+         "name":"Musique Test",
+         "genre":5,
+         "isLivreAudio":false,
+         "duree":144,
+         "id":6,
+         "content":"musique3.mp4"
+      }, {
+         "artiste":"Artiste Test",
+         "name":"Musique Test",
+         "genre":1,
+         "isLivreAudio":false,
+         "duree":138,
+         "id":7,
+         "content":"musique3.mp4"
+      }, {
+         "artiste":"Artiste Test",
+         "name":"Musique Test",
+         "genre":4,
+         "isLivreAudio":false,
+         "duree":150,
+         "id":8,
+         "content":"musique3.mp4"
+      }, {
+         "artiste":"Artiste Test",
+         "name":"Musique Test",
+         "genre":3,
+         "isLivreAudio":false,
+         "duree":122,
+         "id":9,
+         "content":"musique3.mp4"
+      }, {
+         "artiste":"Artiste Test",
+         "name":"Musique Test 10",
+         "genre":4,
+         "isLivreAudio":false,
+         "duree":666,
+         "id":10,
+         "content":"musique3.mp4"
+      }, {
+         "artiste":"SKO MSB",
+         "name":"Musique 11",
+         "genre":2,
+         "isLivreAudio":false,
+         "duree":666,
+         "id":11,
+         "content":"musique3.mp4"
+      }, {
+         "artiste":"SKO MSB",
+         "name":"Ultrason 12",
+         "genre":3,
+         "isLivreAudio":false,
+         "duree":666,
+         "id":12,
+         "content":"musique3.mp4"
+      }, {
+         "artiste":"SKO MSB",
+         "name":"Vilebrequin",
+         "genre":4,
+         "isLivreAudio":false,
+         "duree":155,
+         "id":13,
+         "content":"musique3.mp4"
+      }, {
+         "artiste":"SKO MSB",
+         "name":"Arbre a cames",
+         "genre":4,
+         "isLivreAudio":false,
+         "duree":10,
+         "id":14,
+         "content":"musique3.mp4"
+      }, {
+         "artiste":"SKO MSB",
+         "name":"Turbo",
+         "genre":4,
+         "isLivreAudio":false,
+         "duree":100,
+         "id":15,
+         "content":"musique_turbo.mp4"
+      }, {
+         "artiste":"SKO MSB",
+         "name":"Pompe a vide",
+         "genre":4,
+         "isLivreAudio":false,
+         "duree":200,
+         "id":16,
+         "content":"musique_turbo.mp4"
+      }, {
+         "artiste":"SKO MSB",
+         "name":"Bielle",
+         "genre":4,
+         "isLivreAudio":false,
+         "duree":245,
+         "id":17,
+         "content":"musique_bielle.mp4"
+      }, {
+         "artiste":"SKO MSB",
+         "name":"Injection directe TDI PD IP",
+         "genre":4,
+         "isLivreAudio":false,
+         "duree":300,
+         "id":18,
+         "content":"musique_tdi.mp4"
+      }, {
+         "artiste":"Artiste Test",
+         "name":"Musique Test",
+         "genre":5,
+         "isLivreAudio":false,
+         "duree":120,
+         "id":19,
+         "content":"musique3.mp4"
+      }, {
+         "artiste":"Artiste Test",
+         "name":"Musique Test",
+         "genre":5,
+         "isLivreAudio":false,
+         "duree":144,
+         "id":20,
          "content":"musique3.mp4"
       }
    ],
