@@ -111,18 +111,6 @@ class MainClass {
   /*************************LISTE reste 2 methode à finir***********************************/
   private static void titreAlbumParDate(){
     /*System.out.println("Liste des albums (Par ordre alphabétique) : " );
-    int [] filtredate = {};
-    for (int i = 0; i < listAlbum.size(); i++) {
-      Album alb = listAlbum.get(i);
-      System.out.println(alb.getName() + " " + alb.getDate());
-    }
-    Arrays.sort(filtredate);*/
-
-
-    /*
-    Album alb = listAlbum.get(i)
-    dz
-
     println("Original:");
     for (int i = 0; i < listAlbum.size(); i++) {
       System.out.println(i + ". " + listAlbum.get(i).getName());
@@ -153,13 +141,6 @@ class MainClass {
   }
   private static void listPlaylistRangeParNom() {
     /*
-    println("Original:");
-    for (int i = 0; i < listPlaylist.size(); i++) {
-      System.out.println(i + ". " + listPlaylist.get(i).getName());
-    }
-
-
-
     Also for sorting dynamically without implements :)
 
     Collections.sort(listPlaylist,new Comparator<Collection>() {
@@ -310,6 +291,8 @@ class MainClass {
   }
 
   /*************************EDITION à faire***********************************/
+  
+
 
   private static void viewCollectionEM(Collection coll) {
     ArrayList<Integer> listEM = coll.getEM();
@@ -324,7 +307,6 @@ class MainClass {
       }
     }
   }
-
   private static String getDureeMin(int sec) {
     int min = sec / 60;
     int rSec = (int)((((double)sec / 60.0) - (double)min) * 60.0);
