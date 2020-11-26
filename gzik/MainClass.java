@@ -402,7 +402,7 @@ class MainClass {
       /* Chargement en memoire */
       JSONArray chansonArr = objCtn.getJSONArray("chanson");
       length = chansonArr.length();
-      System.out.println( "chanson: " + length );
+      System.out.println( "Chanson: " + length );
 
       for(int i = 0; i < length; i++) {
           JSONObject itm = chansonArr.getJSONObject(i);
@@ -419,6 +419,7 @@ class MainClass {
 
       JSONArray livreaudioArr = objCtn.getJSONArray("livreaudio");
       length = livreaudioArr.length();
+      System.out.println( "Livre Audio: " + length );
 
       for(int i = 0; i < length; i++) {
           JSONObject itm = livreaudioArr.getJSONObject(i);

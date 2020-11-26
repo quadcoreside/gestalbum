@@ -168,38 +168,71 @@
          "categorie":1,
          "name":"Livre Audio 1",
          "isLivreAudio":true,
-         "duree":35356,
+         "duree":321,
          "id":5,
          "content":"musique1.mp4",
          "auteur":"Auteur 1"
-      },
-      {
+      }, {
          "langues":1,
          "categorie":1,
          "name":"Livre Audio 2",
          "isLivreAudio":true,
-         "duree":3523,
+         "duree":741,
          "id":6,
          "content":"musique2.mp4",
          "auteur":"Auteur 2"
-      },
-      {
+      }, {
          "langues":1,
          "categorie":1,
          "name":"Livre Audio 3",
          "isLivreAudio":true,
-         "duree":35355,
+         "duree":152,
          "id":7,
          "content":"musique3.mp4",
          "auteur":"Auteur 3"
-      },
-      {
+      }, {
          "langues":2,
          "categorie":3,
          "name":"Livre Audio TEST",
          "isLivreAudio":true,
-         "duree":10352,
+         "duree":130,
          "id":8,
+         "content":"musique_test.mp4",
+         "auteur":"Auteur 3"
+      }, {
+         "langues":1,
+         "categorie":1,
+         "name":"Livre Audio 1",
+         "isLivreAudio":true,
+         "duree":321,
+         "id":55,
+         "content":"musique1.mp4",
+         "auteur":"Auteur 1"
+      }, {
+         "langues":1,
+         "categorie":1,
+         "name":"Livre Audio",
+         "isLivreAudio":true,
+         "duree":741,
+         "id":65,
+         "content":"musique2.mp4",
+         "auteur":"Auteur 2"
+      }, {
+         "langues":1,
+         "categorie":1,
+         "name":"Livre Audio",
+         "isLivreAudio":true,
+         "duree":152,
+         "id":47,
+         "content":"musique3.mp4",
+         "auteur":"Auteur 3"
+      }, {
+         "langues":2,
+         "categorie":3,
+         "name":"Livre Audio X",
+         "isLivreAudio":true,
+         "duree":130,
+         "id":825,
          "content":"musique_test.mp4",
          "auteur":"Auteur 3"
       }
