@@ -137,7 +137,7 @@ class MainClass {
 
     for (int i = 0; i < listAlbum.size() ; i++) {
       Album alb = listAlbum.get(i);
-      println((i+1) + ". " + alb.getName() + "\t" + alb.getArtiste() + "\t" + alb.getDate() + "\t" + alb.getDuree());
+      println((i+1) + ". " + alb.getName() + "\t" + alb.getArtiste() + "\t" + alb.getDate() + "\t" + getDureeMin(alb.getDuree()));
     }
     Scanner sc = new Scanner(System.in);
     println("Veuillez choisir l'album: ");
@@ -328,8 +328,8 @@ class MainClass {
   }
 
   private static String getDureeMin(int sec) {
-    int min = sec / 3600;
-    int rSec = (int)((((double)sec / 3600.0) - (double)min) * 60.0);
+    int min = sec / 60;
+    int rSec = (int)((((double)sec / 60.0) - (double)min) * 60.0);
     return min + ":" + rSec;
   }
   private static ElementMusical getEmById(int id) {
