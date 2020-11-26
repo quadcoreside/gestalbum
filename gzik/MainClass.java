@@ -124,33 +124,45 @@ class MainClass {
     /*
     Album alb = listAlbum.get(i)
     dz
-    */
 
     println("Original:");
     for (int i = 0; i < listAlbum.size(); i++) {
       System.out.println(i + ". " + listAlbum.get(i).getName());
     }
+    */
 
     /* Ne pas confondre notre Collection classe et la classe Collections dans java.util */
     // On appelle notre methode de comparaison par date qui static
     Collections.sort(listAlbum, Collections.reverseOrder(new Album.DateComparator())); //reverseOrder plus récent en premier
 
-    println("Sorted:");
-    for (int i = 0; i < listAlbum.size(); i++) {
-      System.out.println(i + ". " + listAlbum.get(i).getName());
+    for (int i = 0; i < listAlbum.size() ; i++) {
+      Album alb = listAlbum.get(i);
+      println((i+1) + ". " + alb.getName() + "\t" + alb.getArtiste() + "\t" + alb.getDate() + "\t" + alb.getDuree());
     }
+    Scanner sc = new Scanner(System.in);
+    println("Veuillez choisir l'album: ");
+    int choix = 1;
+    do {
+        while (!sc.hasNextInt()) sc.next();
+        choix = sc.nextInt();
+    } while (choix < 0 || choix > listAlbum.size());
+
+    Album albch = listAlbum.get(choix - 1);
+    println("Vous avez choisit: " + choix + " \n " + albch.getName() + "\t" + albch.getArtiste() + "\t" + albch.getDate() + "\t" + getDureeMin(albch.getDuree())
+              + " (" + albch.getEM().size() + " chanson)");
+
+    viewCollectionEM(albch);
   }
 
   private static void listPlaylistRangeParNom() {
-
+    /*
     println("Original:");
     for (int i = 0; i < listPlaylist.size(); i++) {
       System.out.println(i + ". " + listPlaylist.get(i).getName());
     }
 
-    Collections.sort(listPlaylist); //sort by ASC != reverseOrder
 
-    /*
+
     Also for sorting dynamically without implements :)
 
     Collections.sort(listPlaylist,new Comparator<Collection>() {
@@ -159,11 +171,24 @@ class MainClass {
             return a.getName().compareTo(b.getName());
         }
     });*/
+    /// ICI notionn d'implemnts
+    Collections.sort(listPlaylist); //sort by ASC != reverseOrder
 
-    println("Sorted:");
-    for (int i = 0; i < listPlaylist.size(); i++) {
-      System.out.println(i + ". " + listPlaylist.get(i).getName());
+    for (int i = 0; i < listPlaylist.size() ; i++) {
+      Playlist pl = listPlaylist.get(i);
+      println((i+1) + ". " + pl.getName() + "\t elements: " + pl.getEM().size() );
     }
+    Scanner sc = new Scanner(System.in);
+    println("Veuillez choisir une playlist: ");
+    int choix = 1;
+    do {
+        while (!sc.hasNextInt()) sc.next();
+        choix = sc.nextInt();
+    } while (choix < 0 || choix > listPlaylist.size());
+
+    Playlist plch = listPlaylist.get(choix - 1);
+    println("Vous avez choisit: " + choix + " \n " + plch.getName()
+              + " (" + plch.getEM().size() + " elements)");
   }
 
   private static void listeChansonAlbum() {
@@ -262,7 +287,7 @@ class MainClass {
           LivreAudio la = (LivreAudio)em;
           String key = la.getAuteur().toLowerCase();
           if (k.equals(key)) {
-              println("\t" + (a+1) + " . " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + la.getDuree());
+              println("\t" + (a+1) + " . " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()));
               listPlayable.put(a, la.getId());
               a++;
           }
@@ -283,12 +308,30 @@ class MainClass {
     int id = listPlayable.get(choix - 1);
 
     LivreAudio la = (LivreAudio)getEmById(id);
-    println("Vous avez choisit: " + choix + " \n " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + la.getDuree());
+    println("Vous avez choisit: " + choix + " \n " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()));
   }
 
   /*************************EDITION à faire***********************************/
 
+  private static void viewCollectionEM(Collection coll) {
+    ArrayList<Integer> listEM = coll.getEM();
+    for (int i = 0; i < listEM.size(); i++ ) {
+      ElementMusical em = getEmById(listEM.get(i));
+      if (em.getIsLivreAudio()) {
+        LivreAudio la = (LivreAudio)em;
+        println((i+1) +  ". "  + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()) + "\t LivreAudio");
+      } else {
+        Chanson ch = (Chanson)em;
+        println((i+1) +  ". "  + ch.getName() + "\t" + ch.getArtiste() + "\t" + ch.getGenre() + "\t" + getDureeMin(ch.getDuree()) + "\t Chanson");
+      }
+    }
+  }
 
+  private static String getDureeMin(int sec) {
+    int min = sec / 3600;
+    int rSec = (int)((((double)sec / 3600.0) - (double)min) * 60.0);
+    return min + ":" + rSec;
+  }
   private static ElementMusical getEmById(int id) {
     ElementMusical em = null;
     for (int i = 0; i < listElementMusical.size(); i++) {
@@ -328,7 +371,7 @@ class MainClass {
           obj.setId(itm.getInt("id"));
           obj.setName(itm.getString("name"));
           obj.setArtiste(itm.getString("artiste"));
-          obj.setDuree((float)itm.getDouble("duree"));
+          obj.setDuree(itm.optInt("duree"));
           obj.setDate(itm.optInt("date"));
           JSONArray chansonArr = itm.optJSONArray("em");
           int lengthChanson = chansonArr.length();
@@ -372,7 +415,7 @@ class MainClass {
           obj.setArtiste(itm.getString("artiste"));
           obj.setGenre(itm.getInt("genre"));
           obj.setContent(itm.getString("content"));
-          obj.setDuree((float)itm.getDouble("duree"));
+          obj.setDuree(itm.optInt("duree"));
           listElementMusical.add(obj);
       }
 
@@ -389,7 +432,7 @@ class MainClass {
           obj.setLangues(itm.getInt("langues"));
           obj.setCategorie(itm.getInt("categorie"));
           obj.setContent(itm.getString("content"));
-          obj.setDuree((float)itm.getDouble("duree"));
+          obj.setDuree(itm.optInt("duree"));
           listElementMusical.add(obj);
       }
     }

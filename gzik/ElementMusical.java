@@ -4,7 +4,7 @@ public class ElementMusical {
   private Integer id;
   private String name;
   private String content;
-  private float duree;
+  private int duree;
 
   private boolean isLivreAudio = false;
 
@@ -36,10 +36,10 @@ public class ElementMusical {
     this.content = content;
   }
 
-  public float getDuree() {
+  public int getDuree() {
     return duree;
   }
-  public void setDuree(float duree) {
+  public void setDuree(int duree) {
     this.duree = duree;
   }
 

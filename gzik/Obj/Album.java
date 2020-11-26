@@ -6,7 +6,7 @@ import java.util.Comparator;
 public class Album extends Collection {
   private Integer id;
   private String artiste;
-  private float duree;
+  private int duree;
   private Integer date;
 
   public Integer getId() {
@@ -23,10 +23,10 @@ public class Album extends Collection {
     this.artiste = artiste;
   }
 
-  public float getDuree() {
+  public int getDuree() {
     return duree;
   }
-  public void setDuree(float duree) {
+  public void setDuree(int duree) {
     this.duree = duree;
   }
 
