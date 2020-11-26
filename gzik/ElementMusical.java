@@ -43,6 +43,8 @@ public class ElementMusical {
     this.duree = duree;
   }
 
-
+  public String toString() {
+      return this.name;
+  }
 
 }

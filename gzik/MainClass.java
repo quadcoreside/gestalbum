@@ -60,6 +60,9 @@ class MainClass {
       System.out.println( "q: \tQuitter" );
 			System.out.println( "" );
 
+      /* Test */
+      titreAlbumParDate();
+
 			String choice = sc.next();
 
 			if (choice.equals("q")) {
@@ -109,23 +112,58 @@ class MainClass {
 
   /*************************LISTE reste 2 methode à finir***********************************/
   private static void titreAlbumParDate(){
-    System.out.println("Liste des albums (Par ordre alphabétique) : " );
+    /*System.out.println("Liste des albums (Par ordre alphabétique) : " );
     int [] filtredate = {};
     for (int i = 0; i < listAlbum.size(); i++) {
       Album alb = listAlbum.get(i);
       System.out.println(alb.getName() + " " + alb.getDate());
     }
-    Arrays.sort(filtredate);
+    Arrays.sort(filtredate);*/
 
 
     /*
     Album alb = listAlbum.get(i)
     dz
     */
+
+    println("Original:");
+    for (int i = 0; i < listAlbum.size(); i++) {
+      System.out.println(i + ". " + listAlbum.get(i).getName());
+    }
+
+    /* Ne pas confondre notre Collection classe et la classe Collections dans java.util */
+    // On appelle notre methode de comparaison par date qui static
+    Collections.sort(listAlbum, Collections.reverseOrder(new Album.DateComparator())); //reverseOrder plus récent en premier
+
+    println("Sorted:");
+    for (int i = 0; i < listAlbum.size(); i++) {
+      System.out.println(i + ". " + listAlbum.get(i).getName());
+    }
   }
 
   private static void listPlaylistRangeParNom() {
 
+    println("Original:");
+    for (int i = 0; i < listPlaylist.size(); i++) {
+      System.out.println(i + ". " + listPlaylist.get(i).getName());
+    }
+
+    Collections.sort(listPlaylist); //sort by ASC != reverseOrder
+
+    /*
+    Also for sorting dynamically without implements :)
+
+    Collections.sort(listPlaylist,new Comparator<Collection>() {
+        @Override
+        public int compare(Collection a, Collection b) {
+            return a.getName().compareTo(b.getName());
+        }
+    });*/
+
+    println("Sorted:");
+    for (int i = 0; i < listPlaylist.size(); i++) {
+      System.out.println(i + ". " + listPlaylist.get(i).getName());
+    }
   }
 
   private static void listeChansonAlbum() {

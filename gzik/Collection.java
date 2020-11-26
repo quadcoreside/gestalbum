@@ -1,7 +1,12 @@
 package gzik;
+
 import java.util.*;
 
-public class Collection {
+/*
+* Attention le name "Collection" existe dêja dans java.util.*
+*/
+
+public class Collection implements Comparable<Collection> {
   private String name;
   private ArrayList<Integer> listEM;
 
@@ -28,6 +33,16 @@ public class Collection {
   }
   public void delEM(Integer id) {
     this.listEM.remove(id);
+  }
+
+  /* For sorting ASC by name */
+  @Override
+  public int compareTo(Collection c) {
+    return getName().compareTo(c.getName());
+  }
+  @Override
+  public String toString() {
+      return name;
   }
 
 }

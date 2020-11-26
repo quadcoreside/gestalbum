@@ -4,26 +4,76 @@
       "id" : 1,
       "name" : "Album 1",
       "artiste": "Milles Davis",
-      "duree": 45452,
-      "date": "1959",
+      "duree": 7535,
+      "date": 2010,
       "em": [ 3, 2, 1 ]
     }, {
       "id" : 2,
       "name" : "Album 2",
       "artiste": "Milles Davis",
-      "duree": 3045353,
-      "date": "2000",
+      "duree": 1595,
+      "date": 2000,
       "em": [ 3 ]
     }, {
       "id" : 3,
       "name" : "Album 3",
       "artiste": "Album 3",
-      "duree": 56543453,
-      "date": "2020",
+      "duree": 9565,
+      "date": 1945,
+      "em": [ 1, 2, 4 ]
+    }, {
+      "id" : 4,
+      "name" : "Le plus vieux album",
+      "artiste": "Album 3",
+      "duree": 98526,
+      "date": 1939,
+      "em": [ 1, 2, 4 ]
+    }, {
+      "id" : 5,
+      "name" : "Meileur album",
+      "artiste": "Album 3",
+      "duree": 5645,
+      "date": 1994,
+      "em": [ 1, 2, 4 ]
+    }, {
+      "id" : 6,
+      "name" : "Le plus récent",
+      "artiste": "Album 3",
+      "duree": 7582782,
+      "date": 2020,
+      "em": [ 1, 2, 4 ]
+    }, {
+      "id" : 7,
+      "name" : "Illuminations",
+      "artiste": "Buffy Sainte-Marie",
+      "duree": 3600,
+      "date": 2018,
+      "em": [ 1, 2, 4 ]
+    }, {
+      "id" : 8,
+      "name" : "Sacred Seed",
+      "artiste": "Pura Fée",
+      "duree": 4896,
+      "date": 2014,
       "em": [ 1, 2, 4 ]
     }
   ],
   "playlists": [
+    {
+      "id" : 5,
+      "name" : "b playlist",
+       "em": [ 2 ]
+    },
+    {
+      "id" : 4,
+      "name" : "w playlist",
+       "em": [ 3 ]
+    },
+    {
+      "id" : 3,
+      "name" : "zzz playlist",
+       "em": [ 4 ]
+    },
     {
       "id" : 1,
       "name" : "Ma Playlist Perso 1",
@@ -36,6 +86,18 @@
       "id" : 2,
       "name" : "Ma Playlist Perso 3",
        "em": [ 2, 3, 4, 1 ]
+    }, {
+      "id" : 6,
+      "name" : "Playlist perso",
+       "em": [ 3, 1 ]
+    }, {
+      "id" : 7,
+      "name" : "On test le sorting",
+       "em": [ 1, 4 ]
+    }, {
+      "id" : 8,
+      "name" : "Sorting fonctionnnel playlist",
+       "em": [ ]
     }
   ]
 }
