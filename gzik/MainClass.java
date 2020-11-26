@@ -151,7 +151,6 @@ class MainClass {
 
     viewCollectionEM(albch);
   }
-
   private static void listPlaylistRangeParNom() {
     /*
     println("Original:");
@@ -187,8 +186,9 @@ class MainClass {
     Playlist plch = listPlaylist.get(choix - 1);
     println("Vous avez choisit: " + choix + " \n " + plch.getName()
               + " (" + plch.getEM().size() + " elements)");
-  }
 
+    viewCollectionEM(plch);
+  }
   private static void listeChansonAlbum() {
     for (int i = 0; i < listAlbum.size() ; i++) {
       Album alb = listAlbum.get(i);
@@ -341,7 +341,7 @@ class MainClass {
     return em;
   }
   private static String getLangById(int id) {
-    return (String)dicCat.get(id);
+    return (String)dicLangue.get(id);
   }
   private static String getCatById(int id) {
     return (String)dicCat.get(id);
