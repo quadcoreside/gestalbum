@@ -86,16 +86,22 @@ class MainClass {
 
         /* edit */
         case "c":
+          addChanson();
         break;
         case "a":
+          addAlbum();
         break;
         case "+":
+          setChansonToAlbum();
         break;
         case "l":
+          addLivreAudio();
         break;
         case "p":
+          createPlaylist();
         break;
         case "-":
+          deletePlaylist();
         break;
         case "s":
           saveData();
@@ -108,7 +114,7 @@ class MainClass {
     }
   }
 
-  /*************************LISTE reste 2 methode à finir***********************************/
+  /************************* LISTE ***********************************/
   private static void titreAlbumParDate(){
     /*System.out.println("Liste des albums (Par ordre alphabétique) : " );
     println("Original:");
@@ -290,8 +296,28 @@ class MainClass {
     println("Vous avez choisit: " + choix + " \n " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()));
   }
 
-  /*************************EDITION à faire***********************************/
-  
+  /************************* LISTE FIN ***********************************/
+
+  /************************* EDITION à faire ***********************************/
+  private static void addChanson() {
+
+  }
+  private static void addLivreAudio() {
+
+  }
+  private static void addAlbum() {
+
+  }
+  private static void setChansonToAlbum() {
+
+  }
+  private static void createPlaylist() {
+
+  }
+  private static void deletePlaylist() {
+
+  }
+  /************************* EDITION FIN ***********************************/
 
 
   private static void viewCollectionEM(Collection coll) {
