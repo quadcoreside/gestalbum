@@ -318,8 +318,7 @@ class MainClass {
 
   }
   /************************* EDITION FIN ***********************************/
-
-
+  
   private static void viewCollectionEM(Collection coll) {
     ArrayList<Integer> listEM = coll.getEM();
     for (int i = 0; i < listEM.size(); i++ ) {
