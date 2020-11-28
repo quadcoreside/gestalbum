@@ -299,7 +299,7 @@ class MainClass {
 
     println("Veuillez choisir le genre: ");
     for (Map.Entry<Integer, String> itm : dicGenre.entrySet()) {
-      println((itm.getKey()+1) + ". " + itm.getValue());
+      println((itm.getKey()) + ". " + itm.getValue());
     }
     int genre = 1;
     do {
@@ -323,6 +323,7 @@ class MainClass {
     ch.setContent(content);
 
     listElementMusical.add(ch);
+    println("Chanson ajoute.");
   }
   private static void addLivreAudio() {
     Scanner sc = new Scanner(System.in);
@@ -371,6 +372,7 @@ class MainClass {
     la.setContent(content);
 
     listElementMusical.add(la);
+    println("Livre audio ajoute.");
   }
   private static void addAlbum() {
     Scanner sc = new Scanner(System.in);
@@ -396,6 +398,7 @@ class MainClass {
     a.setDuree(duree);
 
     listAlbum.add(a);
+    println("Album ajoute.");
   }
   private static void setChansonToAlbum() {
     Scanner sc = new Scanner(System.in);
@@ -434,6 +437,7 @@ class MainClass {
     alb.addEM(id);
 
     listAlbum.set(choix_album, alb);
+    println(ch.getName() + " a ete ajoute a l\"album " + alb.getName());
   }
   private static void createPlaylist() {
     Scanner sc = new Scanner(System.in);
@@ -449,10 +453,10 @@ class MainClass {
     for (int i = 0; i < listElementMusical.size(); i++) {
       if (!listElementMusical.get(i).getIsLivreAudio()) {
         Chanson ch = (Chanson)listElementMusical.get(i);
-        println((i+1) + ". " + ch.getName() + "\t" + ch.getArtiste() + "\t" + ch.getGenre() + "\t" + getDureeMin(ch.getDuree())+ "\t" + "CHANSON");
+        println("\t" + (i+1) + ". " + ch.getName() + "\t" + ch.getArtiste() + "\t" + ch.getGenre() + "\t" + getDureeMin(ch.getDuree())+ "\t" + "CHANSON");
       } else {
         LivreAudio la = (LivreAudio)listElementMusical.get(i);
-        println("\t" + (a+1) + " . " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()));
+        println("\t" + (i+1) + " . " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()));
       }
     }
 
@@ -468,14 +472,15 @@ class MainClass {
         a = Integer.parseInt(entry);
         if (a > 0 && a <= listElementMusical.size()) {
           pl.addEM( listElementMusical.get(a - 1).getId() );
-          println(listElementMusical.get(a - 1).getName() + "ajouté.");
+          println(listElementMusical.get(a - 1).getName() + " ajoute.");
         } else {
-          println("erreur entré incorrecte.");
+          println("erreur entre incorrecte.");
           println("entrer \"t\" une fois terminer");
         }
     }
 
     listPlaylist.add(pl);
+    println("Playlist cree avec succes");
   }
   private static void deletePlaylist() {
     Scanner sc = new Scanner(System.in);
@@ -493,7 +498,7 @@ class MainClass {
 
     Playlist pl = listPlaylist.get(choix);
     listPlaylist.remove(choix);
-    println(pl.getName() + " suprimmé");
+    println(pl.getName() + " suprimme");
   }
   /************************* EDITION FIN ***********************************/
 
