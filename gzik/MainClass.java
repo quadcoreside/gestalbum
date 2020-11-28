@@ -116,13 +116,6 @@ class MainClass {
 
   /************************* LISTE ***********************************/
   private static void titreAlbumParDate(){
-    /*System.out.println("Liste des albums (Par ordre alphabétique) : " );
-    println("Original:");
-    for (int i = 0; i < listAlbum.size(); i++) {
-      System.out.println(i + ". " + listAlbum.get(i).getName());
-    }
-    */
-
     /* Ne pas confondre notre Collection classe et la classe Collections dans java.util */
     // On appelle notre methode de comparaison par date qui static
     Collections.sort(listAlbum, Collections.reverseOrder(new Album.DateComparator())); //reverseOrder plus récent en premier
@@ -148,7 +141,6 @@ class MainClass {
   private static void listPlaylistRangeParNom() {
     /*
     Also for sorting dynamically without implements :)
-
     Collections.sort(listPlaylist,new Comparator<Collection>() {
         @Override
         public int compare(Collection a, Collection b) {
@@ -295,30 +287,216 @@ class MainClass {
     LivreAudio la = (LivreAudio)getEmById(id);
     println("Vous avez choisit: " + choix + " \n " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()));
   }
-
   /************************* LISTE FIN ***********************************/
-
   /************************* EDITION à faire ***********************************/
   private static void addChanson() {
+    Scanner sc = new Scanner(System.in);
+    println("Veuillez entrer le nom de la chanson: ");
+    String name = sc.nextLine();
 
+    println("Veuillez entrer l\"artiste: ");
+    String artiste = sc.nextLine();
+
+    println("Veuillez choisir le genre: ");
+    for (Map.Entry<Integer, String> itm : dicGenre.entrySet()) {
+      println((itm.getKey()+1) + ". " + itm.getValue());
+    }
+    int genre = 1;
+    do {
+        while (!sc.hasNextInt()) sc.next();
+        genre = sc.nextInt();
+    } while (genre < 0 || genre > dicGenre.size());
+
+    println("entrer la duree en seconde: ");
+    while (!sc.hasNextInt()) sc.next();
+    int duree = sc.nextInt();
+
+    println("entrer le contenu: ");
+    String content = sc.nextLine();
+
+    Chanson ch = new Chanson();
+    ch.setId(listElementMusical.size());
+    ch.setName(name);
+    ch.setArtiste(artiste);
+    ch.setGenre(genre);
+    ch.setDuree(duree);
+    ch.setContent(content);
+
+    listElementMusical.add(ch);
   }
   private static void addLivreAudio() {
+    Scanner sc = new Scanner(System.in);
+    println("Veuillez entrer le nom de la chanson: ");
+    String name = sc.nextLine();
 
+    println("Veuillez entrer l\"auteur: ");
+    String auteur = sc.nextLine();
+
+    /********************LANGUE************************/
+    println("Veuillez choisir la langue: ");
+    for (Map.Entry<Integer, String> itm : dicLangue.entrySet()) {
+      println((itm.getKey()+1) + ". " + itm.getValue());
+    }
+    int langue = 1;
+    do {
+        while (!sc.hasNextInt()) sc.next();
+        langue = sc.nextInt();
+    } while (langue < 0 || langue > dicLangue.size());
+
+    /********************CAT************************/
+    println("Veuillez choisir la categorie: ");
+    for (Map.Entry<Integer, String> itm : dicCat.entrySet()) {
+      println((itm.getKey()+1) + ". " + itm.getValue());
+    }
+    int cat = 1;
+    do {
+        while (!sc.hasNextInt()) sc.next();
+        cat = sc.nextInt();
+    } while (cat < 0 || cat > dicCat.size());
+
+    println("entrer la duree en seconde: ");
+    while (!sc.hasNextInt()) sc.next();
+    int duree = sc.nextInt();
+
+    println("entrer le contenu: ");
+    String content = sc.nextLine();
+
+    LivreAudio la = new LivreAudio();
+    la.setId(listElementMusical.size());
+    la.setName(name);
+    la.setAuteur(auteur);
+    la.setLangues(langue);
+    la.setCategorie(cat);
+    la.setDuree(duree);
+    la.setContent(content);
+
+    listElementMusical.add(la);
   }
   private static void addAlbum() {
+    Scanner sc = new Scanner(System.in);
+    println("Veuillez entrer le nom de l\"album: ");
+    String name = sc.nextLine();
 
+    println("Veuillez entrer l\"artiste: ");
+    String artiste = sc.nextLine();
+
+    println("entrer la date: ");
+    while (!sc.hasNextInt()) sc.next();
+    int date = sc.nextInt();
+
+    println("entrer la duree en seconde: ");
+    while (!sc.hasNextInt()) sc.next();
+    int duree = sc.nextInt();
+
+    Album a = new Album();
+    a.setId(listAlbum.size());
+    a.setName(name);
+    a.setArtiste(artiste);
+    a.setDate(date);
+    a.setDuree(duree);
+
+    listAlbum.add(a);
   }
   private static void setChansonToAlbum() {
+    Scanner sc = new Scanner(System.in);
+    println("Veuillez choisir l\"album de destination");
+    for (int i = 0; i < listAlbum.size(); ) {
+      println((i+1) + ". " + listAlbum.get(i).getName());
+    }
+    int choix_album = 1;
+    do {
+        while (!sc.hasNextInt()) sc.next();
+        choix_album = sc.nextInt();
+    } while (choix_album < 0 || choix_album > listAlbum.size());
 
+    println("Veuillez choisir la chanson");
+    Map<Integer, Integer> listSelectable = new Hashtable<>();
+    a = 0; // compteur global
+    for (int i = 0; i < listElementMusical.size(); i++) {
+      if (!listElementMusical.get(i).getIsLivreAudio()) {
+        Chanson ch = (Chanson)listElementMusical.get(i);
+        listSelectable.put(a, ch.getId());
+        println((a+1) + ". " + ch.getName() + "\t" + ch.getArtiste() + "\t" + ch.getGenre() + "\t" + getDureeMin(ch.getDuree()));
+        a++;
+      }
+    }
+
+    int choix = 1;
+    do {
+        while (!sc.hasNextInt()) sc.next();
+        choix = sc.nextInt();
+    } while (choix < 0 || choix > listSelectable.size());
+
+    int id = listSelectable.get(choix - 1);
+    Chanson ch = (Chanson)getEmById(id);
+
+    Album alb = listAlbum.get(choix_album);
+    alb.addEM(id);
+
+    listAlbum.set(choix_album, alb);
   }
   private static void createPlaylist() {
+    Scanner sc = new Scanner(System.in);
+    println("Veuillez le nom de la playlist");
+    String name = sc.nextLine();
 
+    Playlist pl = new Playlist();
+    pl.setId(listPlaylist.size());
+    pl.setName(name);
+
+    println("Veuillez choisir les elements musicaux a ajouter a la playlist: ");
+    println("appuyer sur t une fois terminer");
+    for (int i = 0; i < listElementMusical.size(); i++) {
+      if (!listElementMusical.get(i).getIsLivreAudio()) {
+        Chanson ch = (Chanson)listElementMusical.get(i);
+        println((i+1) + ". " + ch.getName() + "\t" + ch.getArtiste() + "\t" + ch.getGenre() + "\t" + getDureeMin(ch.getDuree())+ "\t" + "CHANSON");
+      } else {
+        LivreAudio la = (LivreAudio)listElementMusical.get(i);
+        println("\t" + (a+1) + " . " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()));
+      }
+    }
+
+    String entry = "";
+    while (sc.hasNextLine()) {
+        entry = sc.nextLine();
+
+        if (entry.equals("t")) {
+          break;
+        }
+
+        int a = 0;
+        a = Integer.parseInt(entry);
+        if (a > 0 && a <= listElementMusical.size()) {
+          pl.addEM( listElementMusical.get(a - 1).getId() );
+          println(listElementMusical.get(a - 1).getName() + "ajouté.");
+        } else {
+          println("erreur entré incorrecte.");
+          println("entrer \"t\" une fois terminer");
+        }
+    }
+
+    listPlaylist.add(pl);
   }
   private static void deletePlaylist() {
+    Scanner sc = new Scanner(System.in);
+    println("Choisir la playlist a supprimer:");
+    for (int i = 0; i < listPlaylist.size() ; i++) {
+      Playlist pl = listPlaylist.get(i);
+      println((i+1) + ". " + pl.getName() + "\t elements: " + pl.getEM().size() );
+    }
 
+    int choix = 1;
+    do {
+        while (!sc.hasNextInt()) sc.next();
+        choix = sc.nextInt();
+    } while (choix < 0 || choix > listPlaylist.size());
+
+    Playlist pl = listPlaylist.get(choix);
+    listPlaylist.remove(choix);
+    println(pl.getName() + " suprimmé");
   }
   /************************* EDITION FIN ***********************************/
-  
+
   private static void viewCollectionEM(Collection coll) {
     ArrayList<Integer> listEM = coll.getEM();
     for (int i = 0; i < listEM.size(); i++ ) {
