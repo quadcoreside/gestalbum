@@ -27,6 +27,7 @@ class MainClass {
   private static Map<Integer, String> dicCat = new Hashtable();
   private static Map<Integer, String> dicLangue = new Hashtable();
 
+  private static boolean firstCmd = true;
   public static void main(String[] args) {
     loadData();
     System.out.println( "DATA Loaded !" );
@@ -35,7 +36,25 @@ class MainClass {
 
     /* Commande Exec */
     while (true) {
-			Scanner sc = new Scanner(System.in);
+      Scanner sc = new Scanner(System.in);
+
+      if (!firstCmd) {
+        System.out.println( "" );
+        System.out.println( "1. Afficher le menu" );
+        System.out.println( "2. Quitter" );
+
+        int choix = 1;
+        do {
+            while (!sc.hasNextInt()) sc.next();
+            choix = sc.nextInt();
+        } while (choix < 0 || choix > 2);
+
+        if (choix == 2) {
+          break;
+        }
+      }
+      firstCmd = false;
+
       System.out.println( "Welcom" );
 
       System.out.println( "" );
@@ -436,7 +455,7 @@ class MainClass {
     Album alb = listAlbum.get(choix_album - 1);
     alb.addEM(id);
 
-    listAlbum.set(choix_album, alb);
+    listAlbum.set(choix_album - 1, alb);
     println(ch.getName() + " a ete ajoute a l\"album " + alb.getName());
   }
   private static void createPlaylist() {
