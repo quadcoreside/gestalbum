@@ -403,7 +403,7 @@ class MainClass {
   private static void setChansonToAlbum() {
     Scanner sc = new Scanner(System.in);
     println("Veuillez choisir l\"album de destination");
-    for (int i = 0; i < listAlbum.size(); ) {
+    for (int i = 0; i < listAlbum.size(); i++) {
       println((i+1) + ". " + listAlbum.get(i).getName());
     }
     int choix_album = 1;
@@ -433,7 +433,7 @@ class MainClass {
     int id = listSelectable.get(choix - 1);
     Chanson ch = (Chanson)getEmById(id);
 
-    Album alb = listAlbum.get(choix_album);
+    Album alb = listAlbum.get(choix_album - 1);
     alb.addEM(id);
 
     listAlbum.set(choix_album, alb);
@@ -496,8 +496,8 @@ class MainClass {
         choix = sc.nextInt();
     } while (choix < 0 || choix > listPlaylist.size());
 
-    Playlist pl = listPlaylist.get(choix);
-    listPlaylist.remove(choix);
+    Playlist pl = listPlaylist.get(choix - 1);
+    listPlaylist.remove(choix - 1);
     println(pl.getName() + " suprimme");
   }
   /************************* EDITION FIN ***********************************/
