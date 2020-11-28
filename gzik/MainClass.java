@@ -55,29 +55,29 @@ class MainClass {
       }
       firstCmd = false;
 
-      System.out.println( "Welcom" );
+      println( "Welcom" );
 
-      System.out.println( "" );
-      System.out.println( "-------------------PARCOURIR----------------------" );
-      System.out.println( "lc: \tListe chanson d'un album" );
-      System.out.println( "ld: \tles titres des albums, ranges par date de sortie" );
-      System.out.println( "lg: \tles titres des albums, ranges par genre" );
-      System.out.println( "lp: \tles playlists, rangees par nom" );
-      System.out.println( "ll: \tles livres audio ranges par auteur" );
+      println( "" );
+      println( "-------------------PARCOURIR----------------------" );
+      println( "lc: \tListe chanson d'un album" );
+      println( "ld: \tles titres des albums, ranges par date de sortie" );
+      println( "lg: \tles titres des albums, ranges par genre" );
+      println( "lp: \tles playlists, rangees par nom" );
+      println( "ll: \tles livres audio ranges par auteur" );
 
-      System.out.println( "" );
-      System.out.println( "-------------------EDITION----------------------" );
-      System.out.println( "c: \tRajout d\"une nouvelle chanson" );
-      System.out.println( "a: \tRajout d\"un nouvel album" );
-      System.out.println( "+: \tRajout d\"une chanson existante a un album " );
-      System.out.println( "l: \tRajout d\"un nouveau livre audio" );
-      System.out.println( "p: \tCreation d\"une nouvelle playlist a partir de chansons et livres audio existants" );
-      System.out.println( "-: \tSuppression d\"une playlist" );
-      System.out.println( "s: \tSauvegarde des playlists, des albums, des chansons et des livres audios dans les fichiers concernes." );
+      println( "" );
+      println( "-------------------EDITION----------------------" );
+      println( "c: \tRajout d\"une nouvelle chanson" );
+      println( "a: \tRajout d\"un nouvel album" );
+      println( "+: \tRajout d\"une chanson existante a un album " );
+      println( "l: \tRajout d\"un nouveau livre audio" );
+      println( "p: \tCreation d\"une nouvelle playlist a partir de chansons et livres audio existants" );
+      println( "-: \tSuppression d\"une playlist" );
+      println( "s: \tSauvegarde des playlists, des albums, des chansons et des livres audios dans les fichiers concernes." );
 
-      System.out.println( "" );
-      System.out.println( "q: \tQuitter" );
-			System.out.println( "" );
+      println( "" );
+      println( "q: \tQuitter" );
+			println( "" );
 
 
 			String choice = sc.next();
@@ -127,7 +127,7 @@ class MainClass {
         break;
 
         default:
-          System.out.println( "ERREUR: Choix inconnu" );
+          println( "ERREUR: Choix inconnu" );
         break;
       }
     }
@@ -223,7 +223,7 @@ class MainClass {
     a = 0; // compteur global
 
     dicGenre.forEach((k, v) -> {
-      System.out.println("GENRE \t Nom : " + v + "\t ID : " + k);
+      println("GENRE \t Nom : " + v + "\t ID : " + k);
       for (int i = 0; i < listElementMusical.size(); i++) {
         ElementMusical em = listElementMusical.get(i);
         if (!em.getIsLivreAudio()) {
@@ -276,7 +276,7 @@ class MainClass {
 
     a = 0;
     distinctAuteur.forEach((k, v) -> {
-      System.out.println("-> AUTEUR \t Nom : " + k.substring(0, 1).toUpperCase() + k.substring(1) + "\t Num : " + v);
+      println("-> AUTEUR \t Nom : " + k.substring(0, 1).toUpperCase() + k.substring(1) + "\t Num : " + v);
       for (int i = 0; i < listElementMusical.size(); i++) {
         ElementMusical em = listElementMusical.get(i);
         if (em.getIsLivreAudio()) {
@@ -556,7 +556,7 @@ class MainClass {
     return (String)dicCat.get(id);
   }
   public static void println(String str) {
-      System.out.println(str);
+    System.out.println(ANSI_RED + str + ANSI_RESET);
   }
 
   private static void readData(){
@@ -801,4 +801,13 @@ class MainClass {
     dicLangue.put(5, "Allemand");
   }
 
+  public static final String ANSI_RESET = "\u001B[0m";
+  public static final String ANSI_BLACK = "\u001B[30m";
+  public static final String ANSI_RED = "\u001B[31m";
+  public static final String ANSI_GREEN = "\u001B[32m";
+  public static final String ANSI_YELLOW = "\u001B[33m";
+  public static final String ANSI_BLUE = "\u001B[34m";
+  public static final String ANSI_PURPLE = "\u001B[35m";
+  public static final String ANSI_CYAN = "\u001B[36m";
+  public static final String ANSI_WHITE = "\u001B[37m";
 }
