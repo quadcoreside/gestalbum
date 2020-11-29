@@ -23,7 +23,7 @@ public class Album extends Collection {
   }
 
   public int getDate() {
-    return date;
+    return this.date;
   }
   public void setDate(int date) {
     this.date = date;

@@ -283,7 +283,8 @@ class MainClass {
           LivreAudio la = (LivreAudio)em;
           String key = la.getAuteur().toLowerCase();
           if (k.equals(key)) {
-              println("\t" + (a+1) + " . " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()));
+              println("\t" + (a+1) + " . " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) +
+                      "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()));
               listPlayable.put(a, la.getId());
               a++;
           }
@@ -304,7 +305,8 @@ class MainClass {
     int id = listPlayable.get(choix - 1);
 
     LivreAudio la = (LivreAudio)getEmById(id);
-    println("Vous avez choisit: " + choix + " \n " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()));
+    println("Vous avez choisit: " + choix + " \n " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) +
+            "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()));
   }
   /************************* LISTE FIN ***********************************/
   /************************* EDITION à faire ***********************************/
@@ -475,7 +477,8 @@ class MainClass {
         println("\t" + (i+1) + ". " + ch.getName() + "\t" + ch.getArtiste() + "\t" + ch.getGenre() + "\t" + getDureeMin(ch.getDuree())+ "\t" + "CHANSON");
       } else {
         LivreAudio la = (LivreAudio)listElementMusical.get(i);
-        println("\t" + (i+1) + " . " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()));
+        println("\t" + (i+1) + " . " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) +
+                "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()));
       }
     }
 
@@ -527,7 +530,8 @@ class MainClass {
       ElementMusical em = getEmById(listEM.get(i));
       if (em.getIsLivreAudio()) {
         LivreAudio la = (LivreAudio)em;
-        println((i+1) +  ". "  + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) + "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()) + "\t LivreAudio");
+        println((i+1) +  ". "  + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) +
+                         "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()) + "\t LivreAudio");
       } else {
         Chanson ch = (Chanson)em;
         println((i+1) +  ". "  + ch.getName() + "\t" + ch.getArtiste() + "\t" + ch.getGenre() + "\t" + getDureeMin(ch.getDuree()) + "\t Chanson");

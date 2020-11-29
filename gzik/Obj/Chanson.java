@@ -20,6 +20,7 @@ public class Chanson extends ElementMusical {
   public void setArtiste(String artiste) {
     this.artiste = artiste;
   }
+  
   public int getGenre() {
     return this.genre;
   }

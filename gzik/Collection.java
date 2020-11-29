@@ -37,8 +37,8 @@ public class Collection implements Comparable<Collection> {
   public void addEM(int id) {
     this.listEM.add(id);
   }
-  public void delEM(int id) {
-    this.listEM.remove(id);
+  public void delEM(int index) {
+    this.listEM.remove(index);
   }
 
   /* For sorting ASC by name */
