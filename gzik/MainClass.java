@@ -89,46 +89,46 @@ class MainClass {
       switch(choice) {
         case "lc":
           listeChansonAlbum();
-        break;
+          break;
         case "ld":
           titreAlbumParDate();
-        break;
+          break;
         case "lg":
           listeTitreRangeParGenre();
-        break;
+          break;
         case "lp":
           listPlaylistRangeParNom();
-        break;
+          break;
         case "ll":
           listeLivreAudioRangeParAuteur();
-        break;
+          break;
 
         /* edit */
         case "c":
           addChanson();
-        break;
+          break;
         case "a":
           addAlbum();
-        break;
+          break;
         case "+":
           setChansonToAlbum();
-        break;
+          break;
         case "l":
           addLivreAudio();
-        break;
+          break;
         case "p":
           createPlaylist();
-        break;
+          break;
         case "-":
           deletePlaylist();
-        break;
+          break;
         case "s":
           saveData();
-        break;
+          break;
 
         default:
           println( "ERREUR: Choix inconnu" );
-        break;
+          break;
       }
     }
   }
@@ -536,7 +536,7 @@ class MainClass {
   }
   private static String getDureeMin(int sec) {
     int min = sec / 60;
-    int rSec = (int)((((double)sec / 60.0) - (double)min) * 60.0);
+    int rSec = (int) ( (((double) (sec / 60.0)) - (double) min) * 60.0 );
     return min + ":" + rSec;
   }
   private static ElementMusical getEmById(int id) {
@@ -556,7 +556,7 @@ class MainClass {
     return (String)dicCat.get(id);
   }
   public static void println(String str) {
-    System.out.println(ANSI_RED + str + ANSI_RESET);
+    System.out.println(str);
   }
 
   private static void readData(){
@@ -644,17 +644,17 @@ class MainClass {
           listElementMusical.add(obj);
       }
     }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    } catch (JSONException e) {
-      e.printStackTrace();
-      System.out.println("Une exception attrapee : " + e.getLocalizedMessage());
-    } catch (Exception e){
-      System.out.println("Une exception attrapee =" + e.getMessage());
+    catch (IOException e1) { /* Exception de R/W de fichier */
+      e1.printStackTrace();
+      println("Erreur: " + e1.getMessage());
+    } catch (JSONException e2) { /* Exception de type json */
+      e2.printStackTrace();
+      println("Une erreur JSON attrapee : " + e2.getMessage());
+    } catch (Exception e3){
+      println("Erreur:" + e3.getMessage());
     }
   }
-  private static String readFile(String file) throws IOException {
+  private static String readFile(String file) throws IOException { // On renvoie l'ex
     BufferedReader reader = new BufferedReader(new FileReader (file));
     String         line = null;
     StringBuilder  stringBuilder = new StringBuilder();
@@ -770,14 +770,14 @@ class MainClass {
 
     } catch (JSONException e) {
       e.printStackTrace();
-      System.out.println("Une exception attrapee : " + e.getLocalizedMessage());
+      println("Erreur JSON : " + e.getMessage());
     } finally {
         try {
             file.flush();
             file.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
+            println("Erreur R/W Fichier : " + e.getMessage());
         }
     }
   }
@@ -800,14 +800,4 @@ class MainClass {
     dicLangue.put(4, "Espagnol");
     dicLangue.put(5, "Allemand");
   }
-
-  public static final String ANSI_RESET = "\u001B[0m";
-  public static final String ANSI_BLACK = "\u001B[30m";
-  public static final String ANSI_RED = "\u001B[31m";
-  public static final String ANSI_GREEN = "\u001B[32m";
-  public static final String ANSI_YELLOW = "\u001B[33m";
-  public static final String ANSI_BLUE = "\u001B[34m";
-  public static final String ANSI_PURPLE = "\u001B[35m";
-  public static final String ANSI_CYAN = "\u001B[36m";
-  public static final String ANSI_WHITE = "\u001B[37m";
 }

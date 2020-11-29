@@ -2,11 +2,10 @@ package gzik;
 
 import java.util.*;
 
-/*
-* Attention le name "Collection" existe dêja dans java.util.*
-*/
+/* Attention le name "Collection" existe dêja dans java.util.* */
 
 public class Collection implements Comparable<Collection> {
+  private int id;
   private String name;
   private ArrayList<Integer> listEM;
 
@@ -14,8 +13,15 @@ public class Collection implements Comparable<Collection> {
     this.listEM = new ArrayList<Integer>();
   }
 
+  public Integer getId() {
+    return this.id;
+  }
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
   public String getName() {
-    return name;
+    return this.name;
   }
   public void setName(String name) {
     this.name = name;
@@ -28,21 +34,21 @@ public class Collection implements Comparable<Collection> {
     this.listEM = listEM;
   }
 
-  public void addEM(Integer id) {
+  public void addEM(int id) {
     this.listEM.add(id);
   }
-  public void delEM(Integer id) {
+  public void delEM(int id) {
     this.listEM.remove(id);
   }
 
   /* For sorting ASC by name */
   @Override
   public int compareTo(Collection c) {
-    return getName().compareTo(c.getName());
+    return this.getName().compareTo(c.getName());
   }
   @Override
   public String toString() {
-      return name;
+      return this.name;
   }
 
 }

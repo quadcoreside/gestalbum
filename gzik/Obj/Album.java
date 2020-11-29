@@ -4,50 +4,41 @@ import gzik.*;
 import java.util.Comparator;
 
 public class Album extends Collection {
-  private Integer id;
   private String artiste;
   private int duree;
-  private Integer date;
-
-  public Integer getId() {
-    return id;
-  }
-  public void setId(Integer id) {
-    this.id = id;
-  }
+  private int date;
 
   public String getArtiste() {
-    return artiste;
+    return this.artiste;
   }
   public void setArtiste(String artiste) {
     this.artiste = artiste;
   }
 
   public int getDuree() {
-    return duree;
+    return this.duree;
   }
   public void setDuree(int duree) {
     this.duree = duree;
   }
 
-  public Integer getDate() {
+  public int getDate() {
     return date;
   }
-  public void setDate(Integer date) {
+  public void setDate(int date) {
     this.date = date;
   }
 
   /* Algo Class implements Comparator interface, for date comprator :) */
-  public static class DateComparator implements Comparator<Album>
-  {
-      public int compare(Album a1, Album a2)
-      {
-          if (a1.getDate() == a2.getDate())
+  public static class DateComparator implements Comparator<Album> {
+      public int compare(Album a1, Album a2) {
+          if (a1.getDate() == a2.getDate()) {
               return 0;
-          else if (a1.getDate() > a2.getDate())
+          } else if (a1.getDate() > a2.getDate()) {
               return 1;
-          else
+          } else {
               return -1;
+          }
       }
   }
 }

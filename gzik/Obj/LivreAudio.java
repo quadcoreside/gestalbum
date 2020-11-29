@@ -1,35 +1,36 @@
 package gzik.Obj;
+
 import gzik.*;
 
 public class LivreAudio extends ElementMusical {
-  private Integer id;
+  private int id;
   private String auteur;
   private int langues;
   private int categorie;
 
-  public Integer getId() {
-    return id;
+  public int getId() {
+    return this.id;
   }
-  public void setId(Integer id) {
+  public void setId(int id) {
     this.id = id;
   }
 
   public String getAuteur() {
-    return auteur;
+    return this.auteur;
   }
   public void setAuteur(String auteur) {
     this.auteur = auteur;
   }
 
   public int getLangues() {
-    return langues;
+    return this.langues;
   }
   public void setLangues(int langues) {
     this.langues = langues;
   }
 
   public int getCategorie() {
-    return categorie;
+    return this.categorie;
   }
   public void setCategorie(int categorie) {
     this.categorie = categorie;

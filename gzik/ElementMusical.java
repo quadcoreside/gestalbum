@@ -1,25 +1,25 @@
 package gzik;
 
 public class ElementMusical {
-  private Integer id;
+  private int id;
   private String name;
   private String content;
   private int duree;
 
-  private boolean isLivreAudio = false;
+  protected boolean isLivreAudio = false;
 
-  public Integer getId() {
-    return id;
+  public int getId() {
+    return this.id;
   }
-  public void setId(Integer id) {
+  public void setId(int id) {
     this.id = id;
   }
 
-  public void setIsLivreAudio(boolean s) {
-    this.isLivreAudio = s;
+  public void setIsLivreAudio(boolean typeIndice) {
+    this.isLivreAudio = typeIndice;
   }
   public boolean getIsLivreAudio() {
-    return isLivreAudio;
+    return this.isLivreAudio;
   }
 
   public String getName() {
@@ -30,14 +30,14 @@ public class ElementMusical {
   }
 
   public String getContent() {
-    return content;
+    return this.content;
   }
   public void setContent(String content) {
     this.content = content;
   }
 
   public int getDuree() {
-    return duree;
+    return this.duree;
   }
   public void setDuree(int duree) {
     this.duree = duree;

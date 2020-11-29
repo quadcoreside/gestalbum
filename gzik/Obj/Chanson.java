@@ -1,26 +1,27 @@
 package gzik.Obj;
+
 import gzik.*;
 
 public class Chanson extends ElementMusical {
-  private Integer id;
+  private int id;
   private String artiste;
   private int genre;
 
-  public Integer getId() {
-    return id;
+  public int getId() {
+    return this.id;
   }
-  public void setId(Integer id) {
+  public void setId(int id) {
     this.id = id;
   }
 
   public String getArtiste() {
-    return artiste;
+    return this.artiste;
   }
   public void setArtiste(String artiste) {
     this.artiste = artiste;
   }
   public int getGenre() {
-    return genre;
+    return this.genre;
   }
   public void setGenre(int genre) {
     this.genre = genre;
