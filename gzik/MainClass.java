@@ -791,6 +791,7 @@ class MainClass {
     dicGenre.put(3, "Rock");
     dicGenre.put(4, "Pop");
     dicGenre.put(5, "Rap");
+    dicGenre.put(6, "Classique");
 
     dicCat.put(1, "Jeunesse");
     dicCat.put(2, "Roman");

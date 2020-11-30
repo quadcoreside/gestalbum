@@ -2,60 +2,46 @@
   "albums": [
     {
       "id" : 1,
-      "name" : "Album 1",
+      "name" : "Kind of Blue",
       "artiste": "Milles Davis",
-      "duree": 7535,
-      "date": 2010,
-      "em": [ 3, 2, 1 ]
+      "duree": 2726,
+      "date": 1959,
+      "em": [ 1, 2, 3, 4, 5 ]
     }, {
       "id" : 2,
-      "name" : "Album 2",
-      "artiste": "Milles Davis",
-      "duree": 1595,
-      "date": 2000,
-      "em": [ 3 ]
+      "name" : "Man on the Moon : The End of the Day",
+      "artiste": "Kid Cudi",
+      "duree": 3500,
+      "date": 2009,
+      "em": [ 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20  ]
     }, {
       "id" : 3,
-      "name" : "Album 3",
-      "artiste": "Album 3",
-      "duree": 9565,
-      "date": 1945,
-      "em": [ 1, 2, 4 ]
+      "name" : "Toxicity",
+      "artiste": "System of the Down",
+      "duree": 2640,
+      "date": 2001,
+      "em": [ 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34]
     }, {
       "id" : 4,
-      "name" : "Le plus vieux album",
-      "artiste": "Album 3",
-      "duree": 98526,
-      "date": 1939,
-      "em": [ 1, 2, 4 ]
+      "name" : "Nocturne Opus 9",
+      "artiste": "Chopin",
+      "duree": 900,
+      "date": 1830,
+      "em": [ 35, 36, 37 ]
     }, {
       "id" : 5,
-      "name" : "Meileur album",
-      "artiste": "Album 3",
-      "duree": 5645,
-      "date": 1994,
-      "em": [ 1, 2, 4 ]
+      "name" : "Dangerous",
+      "artiste": "Michael Jackson",
+      "duree": 4620,
+      "date": 1991,
+      "em": [ 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51 ]
     }, {
       "id" : 6,
-      "name" : "Le plus récent",
-      "artiste": "Album 3",
-      "duree": 7582782,
-      "date": 2020,
-      "em": [ 1, 2, 4 ]
-    }, {
-      "id" : 7,
-      "name" : "Illuminations",
-      "artiste": "Buffy Sainte-Marie",
-      "duree": 3600,
-      "date": 2018,
-      "em": [ 1, 2, 4 ]
-    }, {
-      "id" : 8,
-      "name" : "Sacred Seed",
-      "artiste": "Pura Fée",
-      "duree": 4896,
-      "date": 2014,
-      "em": [ 1, 2, 4 ]
+      "name" : "Du rire aux larmes",
+      "artiste": "Sniper",
+      "duree": 3285,
+      "date": 2001,
+      "em": [ 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67 ]
     }
   ],
   "playlists": [
