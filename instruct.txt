@@ -1,6 +1,6 @@
 /*
 
-readdata --> auto continuité des id autocorrection 
+readdata --> auto continuité des id autocorrection
 mettre en place une fonction ou passe toutes les exception afin de les logger dans un fichier logs.txt
 
 Votre programme doit obligatoirement présenter les différentes thématiques suivantes :
@@ -131,3 +131,14 @@ System.out.println(jsonObject.get("name").getAsString()); //John
 
 https://stackoverflow.com/questions/2591098/how-to-parse-json-in-java
 */
+
+
+/*
+Also for sorting dynamically without implements :)
+Collections.sort(listPlaylist,new Comparator<Collection>() {
+    @Override
+    public int compare(Collection a, Collection b) {
+        return a.getName().compareTo(b.getName());
+    }
+});*/
+/// ICI notionn d'implemnts
