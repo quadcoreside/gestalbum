@@ -123,7 +123,7 @@ class MainClass {
           deletePlaylist();
           break;
         case "s":
-          saveData();
+          saveData();   
           break;
 
         default:
@@ -676,7 +676,7 @@ class MainClass {
     }
   }
   private static FileWriter file;
-  private static void saveData() {
+  private static void saveData(){
     try {
       JSONObject coll = new JSONObject();
 
