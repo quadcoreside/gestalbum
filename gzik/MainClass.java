@@ -14,30 +14,42 @@ import org.json.*;
 import java.util.*;
 import java.lang.*;
 
+/**
+ * Classe principale de gestion des elements musicaux
+ * @author Romain & Moussa
+ * @version 1.0
+ */
 class MainClass {
-  static String fld = System.getProperty("user.dir") + "/Datas/";
-  static String filePathColl = fld + "Collections_Write.json";
-  static String filePathEM = fld + "ElementsMusicaux_Write.json";
+  /* Chemin d'enrgistrement des données */
+  static final String fld = System.getProperty("user.dir") + "/Datas/";
+  static final String filePathColl = fld + "Collections_Write.json";
+  static final String filePathEM = fld + "ElementsMusicaux_Write.json";
 
+  /* Tableau contenant nos collections de données */
   private static ArrayList<ElementMusical> listElementMusical;
   private static ArrayList<Album> listAlbum;
   private static ArrayList<Playlist> listPlaylist;
 
+  /* Tableau contenant nos genre, catégorie, langues */
   private static Map<Integer, String> dicGenre = new Hashtable();
   private static Map<Integer, String> dicCat = new Hashtable();
   private static Map<Integer, String> dicLangue = new Hashtable();
 
+  /* Pour la demande d'affichage du menu ou quitter le programme */
   private static boolean firstCmd = true;
   public static void main(String[] args) {
+    /* Chargement des données en mémoire */
     loadData();
     System.out.println( "DATA Loaded !" );
     readData();
     System.out.println( "DATA Read !" );
 
-    /* Commande Exec */
+    /* Boucle infini */
     while (true) {
+      /* On définit l'objet scanner pour capture l'entré de l'utilisateur */
       Scanner sc = new Scanner(System.in);
 
+      /* Au premier démmarage on ne l'affiche pas, on affiche le menu en entier */
       if (!firstCmd) {
         System.out.println( "" );
         System.out.println( "1. Afficher le menu" );
@@ -123,7 +135,7 @@ class MainClass {
           deletePlaylist();
           break;
         case "s":
-          saveData();   
+          saveData();
           break;
 
         default:
@@ -135,14 +147,17 @@ class MainClass {
 
   /************************* LISTE ***********************************/
   private static void titreAlbumParDate(){
-    /* Ne pas confondre notre Collection classe et la classe Collections dans java.util */
-    // On appelle notre methode de comparaison par date qui static
+    /* A Ne pas confondre notre Collection classe et la classe Collections dans java.util */
+    /* On appelle notre methode de comparaison par date qui est static */
     Collections.sort(listAlbum, Collections.reverseOrder(new Album.DateComparator())); //reverseOrder plus récent en premier
 
+    /* On affiche la liste des album  */
     for (int i = 0; i < listAlbum.size() ; i++) {
       Album alb = listAlbum.get(i);
       println((i+1) + ". " + alb.getName() + "\t" + alb.getArtiste() + "\t" + alb.getDate() + "\t" + getDureeMin(alb.getDuree()));
     }
+
+    /* On capture la saisie du choix */
     Scanner sc = new Scanner(System.in);
     println("Veuillez choisir l'album: ");
     int choix = 1;
@@ -151,6 +166,7 @@ class MainClass {
         choix = sc.nextInt();
     } while (choix < 0 || choix > listAlbum.size());
 
+    /* On affiche l'album choisi */
     Album albch = listAlbum.get(choix - 1);
     println("Vous avez choisit: " + choix + " \n " + albch.getName() + "\t" + albch.getArtiste() + "\t" + albch.getDate() + "\t" + getDureeMin(albch.getDuree())
               + " (" + albch.getEM().size() + " chanson)");
@@ -187,6 +203,14 @@ class MainClass {
 
     viewCollectionEM(plch);
   }
+
+  /**
+  * Lister les chanson d'un album
+  * l'utilisateur choisi un album puis on affiche les elements musicaux contenu la dedans
+  * @param void
+  * @return void
+  * @since 1.0
+  */
   private static void listeChansonAlbum() {
     for (int i = 0; i < listAlbum.size() ; i++) {
       Album alb = listAlbum.get(i);
@@ -216,7 +240,16 @@ class MainClass {
       }
     }
   }
+
   private static int a = 0;
+
+  /**
+  * Lister des elements musicaux ranger par genre
+  * l'utilisateur choisi un element musical puis n lui affiche son choix
+  * @param void
+  * @return void
+  * @since 1.0
+  */
   private static void listeTitreRangeParGenre() {
     int[] g;
     Map<Integer, Integer> listPlayable = new Hashtable<>();
@@ -252,6 +285,14 @@ class MainClass {
     Chanson chch = (Chanson)getEmById(id);
     println("Vous avez choisit: " + choix + " \n " + chch.getName() + "\t" + chch.getArtiste() + "\t" + chch.getGenre() + "\t" + getDureeMin(chch.getDuree()));
   }
+
+  /**
+  * Lister des livres audio ranger par genre
+  * l'utilisateur choisi un livre audio puis on lui affiche son choix
+  * @param void
+  * @return void
+  * @since 1.0
+  */
   private static void listeLivreAudioRangeParAuteur() {
     int[] g;
     Map<String, Integer> distinctAuteur = new Hashtable<>();
@@ -310,6 +351,14 @@ class MainClass {
   }
   /************************* LISTE FIN ***********************************/
   /************************* EDITION à faire ***********************************/
+
+  /**
+  * Ajouter une chanson
+  * l'utilisateur saisi les differents attributs d'une chanson puis on l'ajoute
+  * @param void
+  * @return void
+  * @since 1.0
+  */
   private static void addChanson() {
     Scanner sc = new Scanner(System.in);
     println("Veuillez entrer le nom de la chanson: ");
@@ -346,6 +395,14 @@ class MainClass {
     listElementMusical.add(ch);
     println("Chanson ajoute.");
   }
+
+  /**
+  * Ajouter un livre audio
+  * l'utilisateur saisi les differents attributs d'un livre audio puis on l'ajoute
+  * @param void
+  * @return void
+  * @since 1.0
+  */
   private static void addLivreAudio() {
     Scanner sc = new Scanner(System.in);
     println("Veuillez entrer le nom de la chanson: ");
@@ -395,6 +452,14 @@ class MainClass {
     listElementMusical.add(la);
     println("Livre audio ajoute.");
   }
+
+  /**
+  * Ajouter un album
+  * l'utilisateur saisi les differents attributs d'un album puis on l'ajoute
+  * @param void
+  * @return void
+  * @since 1.0
+  */
   private static void addAlbum() {
     Scanner sc = new Scanner(System.in);
     println("Veuillez entrer le nom de l\"album: ");
@@ -421,6 +486,14 @@ class MainClass {
     listAlbum.add(a);
     println("Album ajoute.");
   }
+
+  /**
+  * Ajouter des chason dans un Album dêja créer
+  * l'utilisateur saisi les differents chanson qu'il souhaite ajouter à l'album choisi
+  * @param void
+  * @return void
+  * @since 1.0
+  */
   private static void setChansonToAlbum() {
     Scanner sc = new Scanner(System.in);
     println("Veuillez choisir l\"album de destination");
@@ -460,6 +533,14 @@ class MainClass {
     listAlbum.set(choix_album - 1, alb);
     println(ch.getName() + " a ete ajoute a l\"album " + alb.getName());
   }
+
+  /**
+  * Créer une playlist
+  * l'utilisateur créer une playlist puis choisit les differents elements musicaux à ajouté
+  * @param void
+  * @return void
+  * @since 1.0
+  */
   private static void createPlaylist() {
     Scanner sc = new Scanner(System.in);
     println("Veuillez le nom de la playlist");
@@ -504,6 +585,15 @@ class MainClass {
     listPlaylist.add(pl);
     println("Playlist cree avec succes");
   }
+
+
+  /**
+  * Supprimer une playlist
+  * l'utilisateur chosit la playlist à supprimer
+  * @param void
+  * @return void
+  * @since 1.0
+  */
   private static void deletePlaylist() {
     Scanner sc = new Scanner(System.in);
     println("Choisir la playlist a supprimer:");
@@ -524,6 +614,13 @@ class MainClass {
   }
   /************************* EDITION FIN ***********************************/
 
+  /**
+  * Afficher les elements musicaux d'une collection
+  * Recherche par ID les differents elements musicaux dans notre tableau et les affiche
+  * @param Prend parametre un objet de type Collection
+  * @return void
+  * @since 1.0
+  */
   private static void viewCollectionEM(Collection coll) {
     ArrayList<Integer> listEM = coll.getEM();
     for (int i = 0; i < listEM.size(); i++ ) {
@@ -538,11 +635,27 @@ class MainClass {
       }
     }
   }
+
+  /**
+  * Affiche un format minute:seconde
+  * Retourner les secondes au format minute:seconde
+  * @param Prend en parametre un entier en secondes
+  * @return String
+  * @since 1.0
+  */
   private static String getDureeMin(int sec) {
     int min = sec / 60;
     int rSec = (int) ( (((double) (sec / 60.0)) - (double) min) * 60.0 );
     return min + ":" + rSec;
   }
+
+  /**
+  * Permet d'obtenir un element musical par son id
+  * On parcours la memoire pour trouver le premiere id correspondant à l'id entré en parametre
+  * @param Prend en parametre un id entier
+  * @return Retourne un ElementMusical
+  * @since 1.0
+  */
   private static ElementMusical getEmById(int id) {
     ElementMusical em = null;
     for (int i = 0; i < listElementMusical.size(); i++) {
@@ -553,16 +666,47 @@ class MainClass {
     }
     return em;
   }
+
+  /**
+  * Obtien le nom de la langue
+  * On renvoi la clé correspondant l'id de la langue préchargé en memoire
+  * @param Prend en parametre un id entier
+  * @return String
+  * @since 1.0
+  */
   private static String getLangById(int id) {
     return (String)dicLangue.get(id);
   }
+
+  /**
+  * Obtien le nom de la catégorie
+  * On renvoi la clé correspondant l'id de la catégorie préchargé en memoire
+  * @param Prend en parametre un id entier
+  * @return String
+  * @since 1.0
+  */
   private static String getCatById(int id) {
     return (String)dicCat.get(id);
   }
+
+  /**
+  * Imprimer du texte à l'ecran
+  * On fait sortir sur la console la chaine de caractere reçu en parametre, donc c'une sorti vers l'utilisateur
+  * @param Prend en parametre une chaine de caractere String
+  * @return void
+  * @since 1.0
+  */
   public static void println(String str) {
     System.out.println(str);
   }
 
+  /**
+  * Lecture des donnée JSON
+  * On lit les données JSON enrgistré dans le dossier Datas, puis on les charges en mémoire, dans nos tableaux.
+  * @param void
+  * @return void
+  * @since 1.0
+  */
   private static void readData(){
     try
     {
@@ -658,6 +802,14 @@ class MainClass {
       println("Erreur:" + e3.getMessage());
     }
   }
+
+  /**
+  * Lecture d'un fichier
+  * On lit les données enrgistré dans un fichier
+  * @param String chemin du fichier
+  * @return String contenu du fichier
+  * @since 1.0
+  */
   private static String readFile(String file) throws IOException { // On renvoie l'ex
     BufferedReader reader = new BufferedReader(new FileReader (file));
     String         line = null;
@@ -676,6 +828,14 @@ class MainClass {
     }
   }
   private static FileWriter file;
+
+  /**
+  * Sauvegarde des données
+  * On sauvegarde les données manipuler en mémoire, dans les fichiers correspondant
+  * @param void
+  * @return void
+  * @since 1.0
+  */
   private static void saveData(){
     try {
       JSONObject coll = new JSONObject();
@@ -785,6 +945,14 @@ class MainClass {
         }
     }
   }
+
+  /**
+  * Chargement des données static
+  * On précharge les données tel quel les langues, catégories, genres.
+  * @param void
+  * @return void
+  * @since 1.0
+  */
   private static void loadData() {
     dicGenre.put(1, "Jazz");
     dicGenre.put(2, "Hip-Hop");

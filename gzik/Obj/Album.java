@@ -3,6 +3,11 @@ package gzik.Obj;
 import gzik.*;
 import java.util.Comparator;
 
+/**
+ * Classe de gestion d'un album
+ * @author Romain & Moussa
+ * @version 1.0
+ */
 public class Album extends Collection {
   private String artiste;
   private int duree;
