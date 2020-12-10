@@ -6,7 +6,6 @@ import gzik.Obj.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -173,15 +172,15 @@ class MainClass {
 
     viewCollectionEM(albch);
   }
+
+  /**
+  * Lister les playlist par nom
+  * l'utilisateur choisi une playlist puis on lui affiche son choix
+  * @param void
+  * @return void
+  * @since 1.0
+  */
   private static void listPlaylistRangeParNom() {
-    /*
-    Also for sorting dynamically without implements :)
-    Collections.sort(listPlaylist,new Comparator<Collection>() {
-        @Override
-        public int compare(Collection a, Collection b) {
-            return a.getName().compareTo(b.getName());
-        }
-    });*/
     /// ICI notionn d'implemnts
     Collections.sort(listPlaylist); //sort by ASC != reverseOrder
 
