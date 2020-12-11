@@ -1001,10 +1001,14 @@ class MainClass {
 
       JSONArray chanson = new JSONArray();
       int nbrChanson = 0;
+
       for (int i = 0; i < listElementMusical.size(); i++) {
+
         ElementMusical em = listElementMusical.get(i);
+
         if (!em.getIsLivreAudio()) {
           Chanson ch = (Chanson)em;
+
           JSONObject obj = new JSONObject();
           obj.put("id", ch.getId());
           obj.put("isLivreAudio", ch.getIsLivreAudio());
@@ -1013,7 +1017,10 @@ class MainClass {
           obj.put("genre", ch.getGenre());
           obj.put("duree", ch.getDuree());
           obj.put("content", ch.getContent());
+
           chanson.put(nbrChanson, obj);
+
+          /* Incrémention du compteur nombre chanson pour ainsi en informer l'utilisateur */
           nbrChanson++;
         }
       }
@@ -1022,9 +1029,13 @@ class MainClass {
       JSONArray livreaudio = new JSONArray();
       int nbrLivreAdio = 0;
       for (int i = 0; i < listElementMusical.size(); i++) {
+
         ElementMusical em = listElementMusical.get(i);
+
         if (em.getIsLivreAudio()) {
+
           LivreAudio la = (LivreAudio)em;
+
           JSONObject obj = new JSONObject();
           obj.put("id", la.getId());
           obj.put("isLivreAudio", la.getIsLivreAudio());
@@ -1034,12 +1045,15 @@ class MainClass {
           obj.put("categorie", la.getCategorie());
           obj.put("duree", la.getDuree());
           obj.put("content", la.getContent());
+
           livreaudio.put(nbrLivreAdio, obj);
+
           nbrLivreAdio++;
         }
       }
       emObj.put("livreaudio", livreaudio);
 
+      /* Ecriture du JSON dans le fichier corrspondant */
       file = new FileWriter(filePathEM);
       file.write(emObj.toString());
 
@@ -1047,19 +1061,28 @@ class MainClass {
       System.out.println("\nJSON Object: " + coll);
 
     } catch (IOException e) {
+
         e.printStackTrace();
 
     } catch (JSONException e) {
+
       e.printStackTrace();
       println("Erreur JSON : " + e.getMessage());
+
     } finally {
+
         try {
+
             file.flush();
             file.close();
+
         } catch (IOException e) {
+
             e.printStackTrace();
             println("Erreur R/W Fichier : " + e.getMessage());
+
         }
+
     }
   }
 
@@ -1071,6 +1094,7 @@ class MainClass {
   * @since 1.0
   */
   private static void loadData() {
+    /* Insertion des genre dans le tableau */
     dicGenre.put(1, "Jazz");
     dicGenre.put(2, "Hip-Hop");
     dicGenre.put(3, "Rock");
@@ -1078,12 +1102,14 @@ class MainClass {
     dicGenre.put(5, "Rap");
     dicGenre.put(6, "Classique");
 
+    /* Insertion des genre dans le categorie */
     dicCat.put(1, "Jeunesse");
     dicCat.put(2, "Roman");
     dicCat.put(3, "Theatre");
     dicCat.put(4, "Discours");
     dicCat.put(5, "Documetaire");
 
+    /* Insertion des langues */
     dicLangue.put(1, "Francais");
     dicLangue.put(2, "Anglais");
     dicLangue.put(3, "Italien");
