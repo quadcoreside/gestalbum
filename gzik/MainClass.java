@@ -123,7 +123,7 @@ class MainClass {
           deletePlaylist();
           break;
         case "s":
-          saveData();   
+          saveData();
           break;
 
         default:
@@ -158,15 +158,7 @@ class MainClass {
     viewCollectionEM(albch);
   }
   private static void listPlaylistRangeParNom() {
-    /*
-    Also for sorting dynamically without implements :)
-    Collections.sort(listPlaylist,new Comparator<Collection>() {
-        @Override
-        public int compare(Collection a, Collection b) {
-            return a.getName().compareTo(b.getName());
-        }
-    });*/
-    /// ICI notionn d'implemnts
+
     Collections.sort(listPlaylist); //sort by ASC != reverseOrder
 
     for (int i = 0; i < listPlaylist.size() ; i++) {
@@ -676,7 +668,7 @@ class MainClass {
     }
   }
   private static FileWriter file;
-  private static void saveData(){
+  private static void saveData() {
     try {
       JSONObject coll = new JSONObject();
 
