@@ -1,7 +1,7 @@
 package gzik;
 
 /**
- * Classe de gestion d'un element musiscal
+ * Classe de gestion d'un element musiscal, constitué majoritairement s'accesseurs (get,set)
  * @author Romain & Moussa
  * @version 1.0
  */
@@ -73,6 +73,7 @@ public class ElementMusical {
     this.duree = duree;
   }
 
+  /* En cas d'appel de cette methode on returne la chhaine de caractere nom */
   public String toString() {
       return this.name;
   }

@@ -4,7 +4,7 @@ import gzik.*;
 import java.util.Comparator;
 
 /**
- * Classe de gestion d'un album
+ * Classe de gestion d'un album, constitué majoritairement d'accesseurs (get/set)
  * @author Romain & Moussa
  * @version 1.0
  */

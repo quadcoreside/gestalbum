@@ -3,7 +3,7 @@ package gzik.Obj;
 import gzik.*;
 
 /**
- * Classe de gestion d'un Livre Audio
+ * Classe de gestion d'un Livre Audio, constitué majoritairement d'accesseurs
  * @author Romain & Moussa
  * @version 1.0
  */

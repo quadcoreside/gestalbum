@@ -3,7 +3,7 @@ package gzik.Obj;
 import gzik.*;
 
 /**
- * Classe de gestion d'une Chanson
+ * Classe de gestion d'une Chanson, constitué majoritairement d'accesseurs
  * @author Romain & Moussa
  * @version 1.0
  */

@@ -24,24 +24,30 @@ class MainClass {
   static final String filePathColl = fld + "Collections_Write.json";
   static final String filePathEM = fld + "ElementsMusicaux_Write.json";
 
-  /* Tableau contenant nos collections de données */
+  /* Tableaux contenant nos collections de données */
   private static ArrayList<ElementMusical> listElementMusical;
   private static ArrayList<Album> listAlbum;
   private static ArrayList<Playlist> listPlaylist;
 
-  /* Tableau contenant nos genre, catégorie, langues */
+  /* Tableaux contenant nos genre, catégorie, langues */
   private static Map<Integer, String> dicGenre = new Hashtable();
   private static Map<Integer, String> dicCat = new Hashtable();
   private static Map<Integer, String> dicLangue = new Hashtable();
 
   /* Pour la demande d'affichage du menu ou quitter le programme */
   private static boolean firstCmd = true;
+
+  /* Vairiable global "a" nous sert de compteur, pour pouvoir afficher une suite logique de choix par exemple */
+  private static int a = 0;
+
   public static void main(String[] args) {
     /* Chargement des données en mémoire */
     loadData();
     System.out.println( "DATA Loaded !" );
     readData();
     System.out.println( "DATA Read !" );
+
+    println( "Bienvenue" );
 
     /* Boucle infini */
     while (true) {
@@ -54,20 +60,19 @@ class MainClass {
         System.out.println( "1. Afficher le menu" );
         System.out.println( "2. Quitter" );
 
-        int choix = 1;
+        int choix = 1; // par défault
         do {
             while (!sc.hasNextInt()) sc.next();
             choix = sc.nextInt();
         } while (choix < 0 || choix > 2);
 
-        if (choix == 2) {
+        if (choix == 2) { // Correspond à quitter
           break;
         }
       }
       firstCmd = false;
 
-      println( "Welcom" );
-
+      /* Affichage du manu pour l'utilisateur  */
       println( "" );
       println( "-------------------PARCOURIR----------------------" );
       println( "lc: \tListe chanson d'un album" );
@@ -90,13 +95,14 @@ class MainClass {
       println( "q: \tQuitter" );
 			println( "" );
 
-
+      /* Récuperation de la saisie dans la variable choice */
 			String choice = sc.next();
 
-			if (choice.equals("q")) {
-				return;
+			if (choice.equals("q")) { //Si la var choice equivaut à "q"
+				return; /* On quitte la boucle infini, soit le programme */
 			}
 
+      /* On injecte la variable choice dans notre switch, pour appeler les methodes correspondante */
       switch(choice) {
         case "lc":
           listeChansonAlbum();
@@ -137,6 +143,7 @@ class MainClass {
           saveData();
           break;
 
+          /* Par défault si la variable injectée dans le switch ne correspond à aucun choix définit */
         default:
           println( "ERREUR: Choix inconnu" );
           break;
@@ -159,6 +166,8 @@ class MainClass {
     /* On capture la saisie du choix */
     Scanner sc = new Scanner(System.in);
     println("Veuillez choisir l'album: ");
+
+    /* Récuperation de la saisie bornée, de maniere persistante */
     int choix = 1;
     do {
         while (!sc.hasNextInt()) sc.next();
@@ -190,6 +199,8 @@ class MainClass {
     }
     Scanner sc = new Scanner(System.in);
     println("Veuillez choisir une playlist: ");
+
+    /* Récuperation de la saisie bornée, de maniere persistante */
     int choix = 1;
     do {
         while (!sc.hasNextInt()) sc.next();
@@ -217,6 +228,8 @@ class MainClass {
     }
     Scanner sc = new Scanner(System.in);
     println("Veuillez choisir l'album: ");
+
+    /* Récuperation de la saisie bornée, de maniere persistante */
     int choix = 1;
     do {
         while (!sc.hasNextInt()) sc.next();
@@ -240,7 +253,6 @@ class MainClass {
     }
   }
 
-  private static int a = 0;
 
   /**
   * Lister des elements musicaux ranger par genre
@@ -269,16 +281,18 @@ class MainClass {
       }
     });
 
-    println("");
+    println(""); // Juste pour un saut de ligne "\r\n"
     Scanner sc = new Scanner(System.in);
     println("Veuillez choisir une chanson (" + listPlayable.size() + "): ");
 
+    /* Récuperation de la saisie bornée, de maniere persistante */
     int choix = 1;
     do {
         while (!sc.hasNextInt()) sc.next();
         choix = sc.nextInt();
     } while (choix < 0 || choix > listPlayable.size());
 
+    /* On recupere l'id un entier correspondant a la liste de choix enumeré */
     int id = listPlayable.get(choix - 1);
 
     Chanson chch = (Chanson)getEmById(id);
@@ -297,6 +311,7 @@ class MainClass {
     Map<String, Integer> distinctAuteur = new Hashtable<>();
     Map<Integer, Integer> listPlayable = new Hashtable<>();
 
+    /* Initialisation de la vairbale global "a" à 0 */
     a = 0;
     for (int i = 0; i < listElementMusical.size(); i++) {
       if (listElementMusical.get(i).getIsLivreAudio()) {
@@ -314,6 +329,7 @@ class MainClass {
     }
     println("Nombre d auteur different: " + distinctAuteur.size() + "\n");
 
+    /* Reset de la vairbale global "a" à 0 */
     a = 0;
     distinctAuteur.forEach((k, v) -> {
       println("-> AUTEUR \t Nom : " + k.substring(0, 1).toUpperCase() + k.substring(1) + "\t Num : " + v);
@@ -336,12 +352,14 @@ class MainClass {
     Scanner sc = new Scanner(System.in);
     println("Veuillez choisir un livre audio (" + listPlayable.size() + "): ");
 
+    /* Récuperation de la saisie bornée, de maniere persistante */
     int choix = 1;
     do {
         while (!sc.hasNextInt()) sc.next();
         choix = sc.nextInt();
     } while (choix < 0 || choix > listPlayable.size());
 
+    /* On recupere l'id un entier correspondant a la liste de choix enumeré */
     int id = listPlayable.get(choix - 1);
 
     LivreAudio la = (LivreAudio)getEmById(id);
@@ -372,6 +390,8 @@ class MainClass {
     for (Map.Entry<Integer, String> itm : dicGenre.entrySet()) {
       println((itm.getKey()) + ". " + itm.getValue());
     }
+
+    /* Récuperation de la saisie bornée, de maniere persistante */
     int genre = 1;
     do {
         while (!sc.hasNextInt()) sc.next();
@@ -385,6 +405,7 @@ class MainClass {
     println("entrer le contenu: ");
     String content = sc.nextLine();
 
+    /* On créer l'objet et met les valeurs dedans */
     Chanson ch = new Chanson();
     ch.setId(listElementMusical.size());
     ch.setName(name);
@@ -393,6 +414,7 @@ class MainClass {
     ch.setDuree(duree);
     ch.setContent(content);
 
+    /* On ajoute l'objet crée à la liste */
     listElementMusical.add(ch);
     println("Chanson ajoute.");
   }
@@ -428,6 +450,8 @@ class MainClass {
     for (Map.Entry<Integer, String> itm : dicCat.entrySet()) {
       println((itm.getKey()+1) + ". " + itm.getValue());
     }
+
+    /* Récuperation de la saisie bornée, de maniere persistante */
     int cat = 1;
     do {
         while (!sc.hasNextInt()) sc.next();
@@ -441,6 +465,7 @@ class MainClass {
     println("entrer le contenu: ");
     String content = sc.nextLine();
 
+    /* On créer l'objet et met les valeurs dedans */
     LivreAudio la = new LivreAudio();
     la.setId(listElementMusical.size());
     la.setName(name);
@@ -450,6 +475,7 @@ class MainClass {
     la.setDuree(duree);
     la.setContent(content);
 
+    /* On ajoute l'objet crée à la liste */
     listElementMusical.add(la);
     println("Livre audio ajoute.");
   }
@@ -477,6 +503,7 @@ class MainClass {
     while (!sc.hasNextInt()) sc.next();
     int duree = sc.nextInt();
 
+    /* On créer l'objet et met les valeurs dedans */
     Album a = new Album();
     a.setId(listAlbum.size());
     a.setName(name);
@@ -484,6 +511,7 @@ class MainClass {
     a.setDate(date);
     a.setDuree(duree);
 
+    /* On ajoute l'objet crée à la liste */
     listAlbum.add(a);
     println("Album ajoute.");
   }
@@ -509,7 +537,10 @@ class MainClass {
 
     println("Veuillez choisir la chanson");
     Map<Integer, Integer> listSelectable = new Hashtable<>();
-    a = 0; // compteur global
+
+    a = 0; /* Initialisation de notre variable global qui nous sert de compteur */
+
+    /* On créer une liste temporaire de elements choissisable par l'utilisateur */
     for (int i = 0; i < listElementMusical.size(); i++) {
       if (!listElementMusical.get(i).getIsLivreAudio()) {
         Chanson ch = (Chanson)listElementMusical.get(i);
@@ -519,6 +550,7 @@ class MainClass {
       }
     }
 
+    /* Récuperation de la saisie bornée, de maniere persistante */
     int choix = 1;
     do {
         while (!sc.hasNextInt()) sc.next();
@@ -564,25 +596,29 @@ class MainClass {
       }
     }
 
+    /* Récuperation de la saisie bornée, de maniere persistante */
     String entry = "";
     while (sc.hasNextLine()) {
         entry = sc.nextLine();
 
+        /* Si l'utilisateur sasie "t" on met fin a la sequence d'ajout de elements */
         if (entry.equals("t")) {
           break;
         }
 
-        int a = 0;
-        a = Integer.parseInt(entry);
-        if (a > 0 && a <= listElementMusical.size()) {
-          pl.addEM( listElementMusical.get(a - 1).getId() );
-          println(listElementMusical.get(a - 1).getName() + " ajoute.");
+        /* Sinon on verifie que la sasie est bien en entier et qui les compris dans les bornes des choix proposés */
+        int s = 0;
+        s = Integer.parseInt(entry);
+        if (s > 0 && s <= listElementMusical.size()) {
+          pl.addEM( listElementMusical.get(s - 1).getId() );
+          println(listElementMusical.get(s - 1).getName() + " ajoute.");
         } else {
-          println("erreur entre incorrecte.");
-          println("entrer \"t\" une fois terminer");
+          println("Erreur entre incorrecte.");
+          println("Entrer \"t\" une fois terminer");
         }
     }
 
+    /* On ajoute l'onnjet dans notre liste de playlist */
     listPlaylist.add(pl);
     println("Playlist cree avec succes");
   }
@@ -598,22 +634,32 @@ class MainClass {
   private static void deletePlaylist() {
     Scanner sc = new Scanner(System.in);
     println("Choisir la playlist a supprimer:");
+
+    /* On affiche les playlist un à un */
     for (int i = 0; i < listPlaylist.size() ; i++) {
       Playlist pl = listPlaylist.get(i);
       println((i+1) + ". " + pl.getName() + "\t elements: " + pl.getEM().size() );
     }
 
+    /* Récuperation de la saisie bornée, de maniere persistante */
     int choix = 1;
     do {
         while (!sc.hasNextInt()) sc.next();
         choix = sc.nextInt();
     } while (choix < 0 || choix > listPlaylist.size());
 
+    /* On supprime l'element choisi */
     Playlist pl = listPlaylist.get(choix - 1);
     listPlaylist.remove(choix - 1);
+
+    /* On affiche le nom de l'element supprimer */
     println(pl.getName() + " suprimme");
   }
+
   /************************* EDITION FIN ***********************************/
+
+
+  /************************* FACILITATEUR ***********************************/
 
   /**
   * Afficher les elements musicaux d'une collection
@@ -623,17 +669,32 @@ class MainClass {
   * @since 1.0
   */
   private static void viewCollectionEM(Collection coll) {
+    /* On récupere dans listEM les elements musicaux de cette collection en paremetre "coll" */
     ArrayList<Integer> listEM = coll.getEM();
+
+    /* On affiche ligne par ligne en fonction du type d'element musical Livre AUdio ou Chanson */
     for (int i = 0; i < listEM.size(); i++ ) {
       ElementMusical em = getEmById(listEM.get(i));
+
+      /* On reconnais le type grace au boolean isLivreAudio dans l'objet ElementMusical */
       if (em.getIsLivreAudio()) {
+
+         /* On castre donc l'element musical dans un LivreAudio */
         LivreAudio la = (LivreAudio)em;
+
+         /* On affiche */
         println((i+1) +  ". "  + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) +
                          "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()) + "\t LivreAudio");
+
       } else {
+        /* On castre donc l'element musical dans une Chanson */
         Chanson ch = (Chanson)em;
+
+        /* On affiche */
         println((i+1) +  ". "  + ch.getName() + "\t" + ch.getArtiste() + "\t" + ch.getGenre() + "\t" + getDureeMin(ch.getDuree()) + "\t Chanson");
+
       }
+
     }
   }
 
@@ -645,6 +706,8 @@ class MainClass {
   * @since 1.0
   */
   private static String getDureeMin(int sec) {
+
+    /* On peut egalement elargir le champ de la simplification en affichant h:m:i */
     int min = sec / 60;
     int rSec = (int) ( (((double) (sec / 60.0)) - (double) min) * 60.0 );
     return min + ":" + rSec;
@@ -658,13 +721,20 @@ class MainClass {
   * @since 1.0
   */
   private static ElementMusical getEmById(int id) {
+    /* On crée un objet de type ElementMusical null */
     ElementMusical em = null;
+
+    /* On parcours la liste ligne par ligne pour ainsi trouvé le premier id correspondant à l'id rechercher en parametre de cette methode */
     for (int i = 0; i < listElementMusical.size(); i++) {
       em = listElementMusical.get(i);
+
+      /* Si l'id de l'element est identique a l'id recu en parametre casse la boucle */
       if (em.getId() == id) {
-        break;
+        break; // On arrete de parcourir le tableau
       }
     }
+
+    /* On retourne l'element muscial correspondant à cette id */
     return em;
   }
 
@@ -690,6 +760,7 @@ class MainClass {
     return (String)dicCat.get(id);
   }
 
+
   /**
   * Imprimer du texte à l'ecran
   * On fait sortir sur la console la chaine de caractere reçu en parametre, donc c'une sorti vers l'utilisateur
@@ -711,67 +782,93 @@ class MainClass {
   private static void readData(){
     try
     {
+      /* Initialisation des variables global a la classe, pour ainsi stocké les données lu */
       String jsonString = readFile(filePathColl);
       JSONObject objCtn = new JSONObject(jsonString);
       listAlbum = new ArrayList<Album>();
       listPlaylist = new ArrayList<Playlist>();
       listElementMusical = new ArrayList<ElementMusical>();
 
+      /* On commence par lire le jeton nommé "albums" qui est un tableau  */
       JSONArray albumsArr = objCtn.getJSONArray("albums");
+      /* On récupere la taille du tableau */
       int length = albumsArr.length();
+      /* On affiche à l'utilisateur le nombre d'album trouvé */
       System.out.println( "albums: " + length );
 
+      /* On parcours le JSONArray nommé albumArr, pour ainsi en extraire des JSONObject corrspondant a des ligne */
       for(int i = 0; i < length; i++) {
+          /* On récupere JSONobject */
           JSONObject itm = albumsArr.getJSONObject(i);
+
+          /* On créer un objet de type ablbum */
           Album obj = new Album();
+
+          /* On redefini ses valeurs */
           obj.setId(itm.getInt("id"));
           obj.setName(itm.getString("name"));
           obj.setArtiste(itm.getString("artiste"));
           obj.setDuree(itm.optInt("duree"));
           obj.setDate(itm.optInt("date"));
+
+          /* Cette ligne de JSONObject contient elle même un JSONArray correspondant au id des elements musicaux */
           JSONArray chansonArr = itm.optJSONArray("em");
+          /* On recupere la liste des elements contenu dedans  */
           int lengthChanson = chansonArr.length();
+
+          /* On parcours le tableau un à un et on les ajoute à notre objet Album */
           for (int a = 0; a < lengthChanson; a++) {
               obj.addEM( chansonArr.optInt(a) );
           }
+
+          /* On ajoute cet objet Album au tableau */
           listAlbum.add(obj);
       }
 
+      /* On recommence l'operation avec les playlists */
       JSONArray playlistArr = objCtn.getJSONArray("playlists");
       length = playlistArr.length();
       System.out.println( "playlists: " + length );
 
       for(int i = 0; i < length; i++) {
           JSONObject itm = playlistArr.getJSONObject(i);
+
           Playlist obj = new Playlist();
+
           obj.setId(itm.getInt("id"));
           obj.setName(itm.getString("name"));
+
           JSONArray chansonArr = itm.optJSONArray("em");
           int lengthChanson = chansonArr.length();
           for (int a = 0; a < lengthChanson; a++) {
-              obj.addEM( chansonArr.optInt(a) );
           }
+          obj.addEM( chansonArr.optInt(a) );
+
           listPlaylist.add(obj);
       }
 
       jsonString = readFile(filePathEM);
       objCtn = new JSONObject(jsonString);
 
-      /* Chargement en memoire */
+      /* Chargement en memoire dans chanson */
       JSONArray chansonArr = objCtn.getJSONArray("chanson");
       length = chansonArr.length();
       System.out.println( "Chanson: " + length );
 
       for(int i = 0; i < length; i++) {
           JSONObject itm = chansonArr.getJSONObject(i);
+
           Chanson obj = new Chanson();
           obj.setId(itm.getInt("id"));
-          obj.setIsLivreAudio(false);
           obj.setName(itm.getString("name"));
           obj.setArtiste(itm.getString("artiste"));
           obj.setGenre(itm.getInt("genre"));
           obj.setContent(itm.getString("content"));
           obj.setDuree(itm.optInt("duree"));
+
+          /* On sait que ce sont tous des Chanson donc false */
+          obj.setIsLivreAudio(false);
+
           listElementMusical.add(obj);
       }
 
@@ -781,15 +878,19 @@ class MainClass {
 
       for(int i = 0; i < length; i++) {
           JSONObject itm = livreaudioArr.getJSONObject(i);
+
           LivreAudio obj = new LivreAudio();
           obj.setId(itm.getInt("id"));
-          obj.setIsLivreAudio(true);
           obj.setName(itm.getString("name"));
           obj.setAuteur(itm.getString("auteur"));
           obj.setLangues(itm.getInt("langues"));
           obj.setCategorie(itm.getInt("categorie"));
           obj.setContent(itm.getString("content"));
           obj.setDuree(itm.optInt("duree"));
+
+          /* On sait que ce sont tous des livre audio donc true */
+          obj.setIsLivreAudio(true);
+
           listElementMusical.add(obj);
       }
     }
@@ -839,17 +940,25 @@ class MainClass {
   */
   private static void saveData(){
     try {
+      /* On créer un objet JSONObject qui va contenir tous nos tableau */
       JSONObject coll = new JSONObject();
 
+      /* Passe d'objet Album à JSONObject */
       JSONArray albums = new JSONArray();
+
+      /* On parcours le tableau de la liste de nos album */
       for (int i = 0; i < listAlbum.size(); i++) {
+        /* On créer notre JSONObject pour tranferer les donnée Album dans JSONObject */
         JSONObject obj = new JSONObject();
+
+        /* On recupere l'objet Album */
         Album alb = listAlbum.get(i);
         obj.put("id", alb.getId());
         obj.put("name", alb.getName());
         obj.put("artiste", alb.getArtiste());
         obj.put("duree", alb.getDuree());
         obj.put("date", alb.getDate());
+
         JSONArray em = new JSONArray();
         ArrayList<Integer> listEm = alb.getEM();
         for (int a = 0; a < listEm.size(); a++) {
@@ -857,16 +966,22 @@ class MainClass {
         }
         obj.put("em", em);
 
+        /* On insere l'objet JSONObject dans le tableau JSONArray */
         albums.put(i, obj);
       }
+
+      /* On insere notre tableau JSONArray dans JSONObject mére */
       coll.put("albums", albums);
 
+      /* On recommence la procedure pour les playlist */
       JSONArray playlists = new JSONArray();
       for (int i = 0; i < listPlaylist.size(); i++) {
         JSONObject obj = new JSONObject();
+
         Playlist pl = listPlaylist.get(i);
         obj.put("id", pl.getId());
         obj.put("name", pl.getName());
+
         JSONArray em = new JSONArray();
         ArrayList<Integer> listEm = pl.getEM();
         for (int a = 0; a < listEm.size(); a++) {
@@ -878,6 +993,7 @@ class MainClass {
       }
       coll.put("playlists", playlists);
 
+      /* Etant donnée que Album et Playlist on à chosi de les stocké dans le meme fichier JSON donc ecri dans ce fichier  */
       file = new FileWriter(filePathColl);
       file.write(coll.toString());
 

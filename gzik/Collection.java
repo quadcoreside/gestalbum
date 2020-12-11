@@ -3,7 +3,7 @@ package gzik;
 import java.util.*;
 
 /**
- * Classe de gestion de collection contenant des elements musicaux
+ * Classe de gestion de collection contenant des elements musicaux, constitué majoritairement d'accesseurs (get/set)
  * @author Romain & Moussa
  * @version 1.0
  */
