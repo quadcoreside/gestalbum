@@ -910,6 +910,7 @@ class MainClass {
   * On lit les données enrgistré dans un fichier
   * @param String chemin du fichier
   * @return String contenu du fichier
+  * @throws Retourne une exception de type IOException
   * @since 1.0
   */
   private static String readFile(String file) throws IOException { // On renvoie l'ex
@@ -929,6 +930,7 @@ class MainClass {
         reader.close();
     }
   }
+  /* Objet global de type FileWriter */
   private static FileWriter file;
 
   /**
