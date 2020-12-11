@@ -144,7 +144,7 @@ class MainClass {
     }
   }
 
-  /************************* LISTE ***********************************/
+  /************************* AFFICHAGE DE LISTE ***********************************/
   private static void titreAlbumParDate(){
     /* A Ne pas confondre notre Collection classe et la classe Collections dans java.util */
     /* On appelle notre methode de comparaison par date qui est static */
@@ -348,8 +348,10 @@ class MainClass {
     println("Vous avez choisit: " + choix + " \n " + la.getName() + "\t" + la.getAuteur() + "\t" + getLangById(la.getLangues()) +
             "\t" + getCatById(la.getCategorie()) + "\t" + getDureeMin(la.getDuree()));
   }
-  /************************* LISTE FIN ***********************************/
-  /************************* EDITION à faire ***********************************/
+  /************************* AFFICHAGE DE LISTE FIN ***********************************/
+
+
+  /************************* EDITION ***********************************/
 
   /**
   * Ajouter une chanson
