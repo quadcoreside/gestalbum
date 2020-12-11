@@ -2,8 +2,11 @@ package gzik;
 
 import java.util.*;
 
-/* Attention le name "Collection" existe dêja dans java.util.* */
-
+/**
+ * Classe de gestion de collection contenant des elements musicaux
+ * @author Romain & Moussa
+ * @version 1.0
+ */
 public class Collection implements Comparable<Collection> {
   private int id;
   private String name;

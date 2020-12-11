@@ -2,6 +2,11 @@ package gzik.Obj;
 
 import gzik.*;
 
+/**
+ * Classe de gestion d'une Chanson
+ * @author Romain & Moussa
+ * @version 1.0
+ */
 public class Chanson extends ElementMusical {
   private int id;
   private String artiste;
@@ -20,7 +25,7 @@ public class Chanson extends ElementMusical {
   public void setArtiste(String artiste) {
     this.artiste = artiste;
   }
-  
+
   public int getGenre() {
     return this.genre;
   }

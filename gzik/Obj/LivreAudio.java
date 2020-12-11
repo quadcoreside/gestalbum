@@ -2,6 +2,11 @@ package gzik.Obj;
 
 import gzik.*;
 
+/**
+ * Classe de gestion d'un Livre Audio
+ * @author Romain & Moussa
+ * @version 1.0
+ */
 public class LivreAudio extends ElementMusical {
   private int id;
   private String auteur;
