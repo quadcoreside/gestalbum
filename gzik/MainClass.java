@@ -36,6 +36,8 @@ class MainClass {
 
   /* Pour la demande d'affichage du menu ou quitter le programme */
   private static boolean firstCmd = true;
+  /* Objet global de type FileWriter */
+  private static FileWriter file;
 
   /* Vairiable global "a" nous sert de compteur, pour pouvoir afficher une suite logique de choix par exemple */
   private static int a = 0;
@@ -155,7 +157,7 @@ class MainClass {
   private static void titreAlbumParDate(){
     /* A Ne pas confondre notre Collection classe et la classe Collections dans java.util */
     /* On appelle notre methode de comparaison par date qui est static */
-    Collections.sort(listAlbum, Collections.reverseOrder(new Album.DateComparator())); //reverseOrder plus récent en premier
+    Collections.sort(listAlbum, Collections.reverseOrder(new AlbumDateComparator())); //reverseOrder plus récent en premier
 
     /* On affiche la liste des album  */
     for (int i = 0; i < listAlbum.size() ; i++) {
@@ -930,8 +932,7 @@ class MainClass {
         reader.close();
     }
   }
-  /* Objet global de type FileWriter */
-  private static FileWriter file;
+
 
   /**
   * Sauvegarde des données
