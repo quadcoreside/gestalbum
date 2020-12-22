@@ -36,6 +36,7 @@ class MainClass {
 
   /* Pour la demande d'affichage du menu ou quitter le programme */
   private static boolean firstCmd = true;
+
   /* Objet global de type FileWriter */
   private static FileWriter file;
 
